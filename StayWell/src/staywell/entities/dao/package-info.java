@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author Scott
+ * @author SXSXSX
  *
  */
 package staywell.entities.dao;
