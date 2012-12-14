@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author Scott
+ * @author ScottLong
  *
  */
 package staywell.ui;
