@@ -42,7 +42,7 @@ public class Homepage extends Layout {
 				f.setVisible(true);
 			}
 		});
-		roomService.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/roomservice.png")));
+		roomService.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/roomservice.png")));
 		roomService.setBounds(141, 152, 150, 150);
 		roomService.setBorder(null);
 		roomService.setBorderPainted(false);
@@ -51,7 +51,7 @@ public class Homepage extends Layout {
 		
 		JButton cashing = new JButton("");
 		cashing.setBounds(914, 0, 100, 100);
-		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/Cashing.png")));
+		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing.png")));
 		cashing.setBorder(null);
 		cashing.setBorderPainted(false);
 		cashing.setContentAreaFilled(false);
@@ -76,7 +76,7 @@ public class Homepage extends Layout {
 			}
 		});
 		feedback.setBounds(311, 607, 100, 100);
-		feedback.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/feedback100X100.png")));
+		feedback.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/feedback100X100.png")));
 		feedback.setBorder(null);
 		feedback.setBorderPainted(false);
 		feedback.setContentAreaFilled(false);
@@ -91,7 +91,7 @@ public class Homepage extends Layout {
 		
 		JButton valetParking = new JButton("");
 		valetParking.setBounds(141, 394, 150, 150);
-		valetParking.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/ValetParking.png")));
+		valetParking.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/ValetParking.png")));
 		valetParking.setBorder(null);
 		valetParking.setBorderPainted(false);
 		valetParking.setContentAreaFilled(false);
@@ -113,7 +113,7 @@ public class Homepage extends Layout {
 		
 		JButton weatherForcast = new JButton("");
 		weatherForcast.setBounds(723, 152, 150, 150);
-		weatherForcast.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/weatherforcast.png")));
+		weatherForcast.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/weatherforcast.png")));
 		weatherForcast.setBorder(null);
 		weatherForcast.setBorderPainted(false);
 		weatherForcast.setContentAreaFilled(false);
@@ -138,7 +138,7 @@ public class Homepage extends Layout {
 			}
 		});
 		pointRedemption.setBounds(723, 394, 150, 150);
-		pointRedemption.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/PointRedemption.png")));
+		pointRedemption.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/PointRedemption.png")));
 		pointRedemption.setBorder(null);
 		pointRedemption.setBorderPainted(false);
 		pointRedemption.setContentAreaFilled(false);
@@ -153,7 +153,7 @@ public class Homepage extends Layout {
 		
 		JButton cityGuide = new JButton("");
 		cityGuide.setBounds(432, 394, 150, 150);
-		cityGuide.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/cityguide.png")));
+		cityGuide.setIcon(new ImageIcon(Homepage.class.getResource("/staywll/image/cityguide.png")));
 		cityGuide.setBorder(null);
 		cityGuide.setBorderPainted(false);
 		cityGuide.setContentAreaFilled(false);
@@ -175,7 +175,7 @@ public class Homepage extends Layout {
 		facRes.setBorder(null);
 		facRes.setBorderPainted(false);
 		facRes.setContentAreaFilled(false);
-		facRes.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/facreservation.png")));
+		facRes.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/facreservation.png")));
 		add(facRes);
 		
 		// To set the logo
@@ -193,7 +193,7 @@ public class Homepage extends Layout {
 			}
 		});
 		taxi.setBounds(603, 607, 100, 100);
-		taxi.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/Taxi.png")));
+		taxi.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Taxi.png")));
 		taxi.setBorder(null);
 		taxi.setBorderPainted(false);
 		taxi.setContentAreaFilled(false);

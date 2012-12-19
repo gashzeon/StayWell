@@ -136,7 +136,7 @@ public class CheckOut extends Layout {
 		add(lblCost);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(CheckOut.class.getResource("/Image1/cashing70X70.png")));
+		btnNewButton.setIcon(new ImageIcon(CheckOut.class.getResource("/staywell/image/cashing70X70.png")));
 		btnNewButton.setBounds(490, 607, 70, 70);
 		add(btnNewButton);
 		

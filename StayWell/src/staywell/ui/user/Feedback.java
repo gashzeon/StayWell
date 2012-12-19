@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Rectangle;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -84,6 +85,14 @@ public class Feedback extends Layout {
 		lblLaundryServices.setFont(new Font("Candara", Font.BOLD, 30));
 		lblLaundryServices.setBounds(379, 42, 256, 36);
 		add(lblLaundryServices);
+		
+		JButton cashing = new JButton("");
+		cashing.setContentAreaFilled(false);
+		cashing.setBorderPainted(false);
+		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing70X70.png")));
+		cashing.setBorder(null);
+		cashing.setBounds(477, 511, 70, 70);
+		add(cashing);
 		
 		super.setLayout();
 	}

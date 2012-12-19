@@ -65,7 +65,7 @@ public class Taxi extends Layout {
 		cashing.setContentAreaFilled(false);
 		cashing.setBorderPainted(false);
 		cashing.setBorder(null);
-		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/Cashing70X70.png")));
+		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing70X70.png")));
 		cashing.setBounds(477, 623, 70, 70);
 		add(cashing);
 		

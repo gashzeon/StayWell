@@ -294,7 +294,7 @@ public class HotelFacilities extends Layout {
 				add(FacilitiesTable);
 				
 				JButton button = new JButton("");
-				button.setIcon(new ImageIcon(HotelFacilities.class.getResource("/Image1/cashing70X70.png")));
+				button.setIcon(new ImageIcon(HotelFacilities.class.getResource("/staywell/image/cashing70X70.png")));
 				button.setBounds(516, 581, 70, 70);
 				add(button);
 				

@@ -40,7 +40,7 @@ public class RoomService extends Layout{
 		});
 		CleaningServices.setContentAreaFilled(false);
 		CleaningServices.setBorderPainted(false);
-		CleaningServices.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/laundryservices.png")));
+		CleaningServices.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/laundryservices.png")));
 		CleaningServices.setBorder(null);
 		CleaningServices.setBounds(729, 296, 150, 150);
 		add(CleaningServices);

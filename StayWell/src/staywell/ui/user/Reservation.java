@@ -81,7 +81,7 @@ public class Reservation extends Layout {
 		hotelFacilities.setBorder(null);
 		hotelFacilities.setBorderPainted(false);
 		hotelFacilities.setContentAreaFilled(false);
-		hotelFacilities.setIcon(new javax.swing.ImageIcon(Reservation.class.getResource("/Image1/hotelfacilities.png")));
+		hotelFacilities.setIcon(new javax.swing.ImageIcon(Reservation.class.getResource("/staywell/image/hotelfacilities.png")));
 		hotelFacilities.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}

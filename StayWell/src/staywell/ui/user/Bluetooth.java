@@ -25,7 +25,7 @@ public class Bluetooth extends Layout{
 		
 		JLabel bluetoothLogo = new JLabel("");
 		bluetoothLogo.setFont(new Font("Candara", Font.BOLD, 20));
-		bluetoothLogo.setIcon(new ImageIcon(Bluetooth.class.getResource("/Image1/bluetooth.png")));
+		bluetoothLogo.setIcon(new ImageIcon(Bluetooth.class.getResource("/staywell/image/bluetooth.png")));
 		bluetoothLogo.setBounds(437, 264, 150, 150);
 		add(bluetoothLogo);
 		

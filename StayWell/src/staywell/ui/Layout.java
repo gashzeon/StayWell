@@ -29,7 +29,7 @@ public class Layout extends JPanel {
 	}
 	public void setLayout(){
 		JButton logo = new JButton();
-		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/Logo.png")));
+		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
 		logo.setBounds(2, 641, 110, 110);
 		logo.setBorder(null);
 		logo.setBorderPainted(false);
@@ -49,7 +49,7 @@ public class Layout extends JPanel {
 
 		JLabel Background = new JLabel("");
 		Background.setIcon(new ImageIcon(Layout.class
-				.getResource("/Image/SWBG.png")));
+				.getResource("/staywell/image/SWBG.png")));
 		Background.setBounds(0, 0, 1356, 758);
 		add(Background);
 	}

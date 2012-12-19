@@ -200,7 +200,7 @@ public class Ballroom extends Layout {
 						}
 					});
 					button.setOpaque(false);
-					button.setIcon(new ImageIcon(Ballroom.class.getResource("/Image1/cashing70X70.png")));
+					button.setIcon(new ImageIcon(Ballroom.class.getResource("/staywell/image/cashing70X70.png")));
 					button.setBounds(497, 574, 70, 70);
 					add(button);
 										
