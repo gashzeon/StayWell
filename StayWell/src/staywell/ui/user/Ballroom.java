@@ -255,7 +255,10 @@ public class Ballroom extends Layout {
 			//set layout							
 			super.setLayout();
 	}
-	
+	public Ballroom(MainFrame frame) {
+		this();
+		f = frame;
+	}
 }
 	
 

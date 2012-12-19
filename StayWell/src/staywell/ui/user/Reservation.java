@@ -31,6 +31,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JTable;
 
 import staywell.ui.Layout;
+import staywell.ui.MainFrame;
 
 import java.awt.Font;
 import java.awt.Button;
@@ -124,5 +125,9 @@ public class Reservation extends Layout {
 
 		super.setLayout();
 		
+	}
+	public Reservation(MainFrame frame) {
+		this();
+		f = frame;
 	}
 }

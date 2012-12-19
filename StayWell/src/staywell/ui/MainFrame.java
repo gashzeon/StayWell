@@ -8,16 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import staywell.ui.user.Bluetooth;
-import staywell.ui.user.Breakfast;
-import staywell.ui.user.CleaningServices;
-import staywell.ui.user.Feedback;
-import staywell.ui.user.Homepage;
-import staywell.ui.user.LaundryServices;
-import staywell.ui.user.Login;
-import staywell.ui.user.Meals;
-import staywell.ui.user.RoomService;
-import staywell.ui.user.Taxi;
+
+import staywell.ui.user.*;
 
 public class MainFrame extends JFrame {
 
@@ -34,9 +26,29 @@ public class MainFrame extends JFrame {
 	private static Bluetooth bluetooth;
 	private static Login login;
 	private static Feedback feedBack;
+	private static Ballroom ballroom;
+	private static Reservation reservation;
+	private static HotelFacilities hotelFacilities;
+	private static CheckOut checkOut;
+	private static Restaurant restaurant;
 	/**
 	 * Launch the application.
 	 */
+	public Ballroom getBallroom(){
+		return ballroom;
+	}
+	public Reservation getReservation(){
+		return reservation;
+	}
+	public HotelFacilities getHotelFacilities(){
+		return hotelFacilities;
+	}
+	public CheckOut getCheckOut(){
+		return checkOut;
+	}
+	public Restaurant getRestaurant(){
+		return restaurant
+	}
 	public RoomService getRoomService(){
 		return roomService;
 	}
@@ -92,6 +104,11 @@ public class MainFrame extends JFrame {
 					facilitiesReservation = new FacilitiesReservation(frame);
 					bluetooth = new Bluetooth(frame);
 					login = new Login(frame);
+					ballroom = new Ballroom(frame);
+					reservation = new Reservation(frame);
+					hotelFacilities = new HotelFacilities(frame);
+					checkOut = new CheckOut(frame);
+					restaurant = new Restaurant(frame);
 					
 					frame.getContentPane().add(login);
 					login.setVisible(true);

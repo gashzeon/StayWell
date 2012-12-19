@@ -23,6 +23,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 
 import staywell.ui.Layout;
+import staywell.ui.MainFrame;
 
 public class HotelFacilities extends Layout {
 	private JTable FacilitiesTable;
@@ -30,6 +31,8 @@ public class HotelFacilities extends Layout {
 	/**
 	 * Create the panel.
 	 */
+	private MainFrame f = null;
+	
 	public HotelFacilities() {
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
@@ -353,5 +356,9 @@ public class HotelFacilities extends Layout {
 
 				super.setLayout();
 
+	}
+	public HotelFacilities(MainFrame frame) {
+		this();
+		f = frame;
 	}
 }

@@ -15,10 +15,12 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
 import staywell.ui.Layout;
+import staywell.ui.MainFrame;
 
 public class CheckOut extends Layout {
 	private JTable table;
 	private JTable table_1;
+	private MainFrame f = null;
 
 	/**
 	 * Create the panel.
@@ -177,5 +179,9 @@ public class CheckOut extends Layout {
 		// set layout
 
 		super.setLayout();
+	}
+	public CheckOut(MainFrame frame) {
+		this();
+		f = frame;
 	}
 }
