@@ -36,6 +36,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 
+import staywell.ui.Layout;
+
 public class Restaurant extends Layout {
 	private JTable RestaurantTable;
 

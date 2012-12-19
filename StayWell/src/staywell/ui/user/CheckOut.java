@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
+import staywell.ui.Layout;
+
 public class CheckOut extends Layout {
 	private JTable table;
 	private JTable table_1;

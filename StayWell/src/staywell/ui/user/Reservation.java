@@ -30,6 +30,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTable;
 
+import staywell.ui.Layout;
+
 import java.awt.Font;
 import java.awt.Button;
 import java.awt.Color;

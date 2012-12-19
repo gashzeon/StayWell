@@ -20,6 +20,9 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 public class Ballroom extends Layout {
 	private boolean DEBUG = false;
 	private JTable table_1;

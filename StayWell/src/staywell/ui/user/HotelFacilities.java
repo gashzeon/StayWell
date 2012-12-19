@@ -22,6 +22,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 
+import staywell.ui.Layout;
+
 public class HotelFacilities extends Layout {
 	private JTable FacilitiesTable;
 
