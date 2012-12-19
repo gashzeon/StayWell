@@ -11,6 +11,9 @@ import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 
 public class Feedback extends Layout {
 

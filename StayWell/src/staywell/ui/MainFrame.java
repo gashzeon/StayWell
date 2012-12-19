@@ -1,4 +1,4 @@
-package staywell.ui.user;
+package staywell.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,10 +8,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.eclipse.swt.graphics.Rectangle;
-
-import Homepage.FacilitiesReservation;
-import Homepage.PointRedemption;
+import staywell.ui.user.Bluetooth;
+import staywell.ui.user.Breakfast;
+import staywell.ui.user.CleaningServices;
+import staywell.ui.user.Feedback;
+import staywell.ui.user.Homepage;
+import staywell.ui.user.LaundryServices;
+import staywell.ui.user.Login;
+import staywell.ui.user.Meals;
+import staywell.ui.user.RoomService;
+import staywell.ui.user.Taxi;
 
 public class MainFrame extends JFrame {
 

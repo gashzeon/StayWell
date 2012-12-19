@@ -6,6 +6,10 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
+
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 import java.awt.Font;
 import java.awt.Color;
 

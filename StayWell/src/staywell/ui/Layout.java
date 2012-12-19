@@ -1,4 +1,4 @@
-package staywell.ui.user;
+package staywell.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,6 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import staywell.ui.user.Homepage;
 
 public class Layout extends JPanel {
 	

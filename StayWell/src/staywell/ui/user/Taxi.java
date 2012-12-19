@@ -12,6 +12,9 @@ import java.awt.Frame;
 
 import javax.swing.SwingConstants;
 
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 public class Taxi extends Layout {
 
 	/**

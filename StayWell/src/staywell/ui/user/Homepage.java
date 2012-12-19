@@ -12,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 public class Homepage extends Layout {
 
 	private JPanel contentPane;

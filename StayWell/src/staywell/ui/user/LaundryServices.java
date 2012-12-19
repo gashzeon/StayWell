@@ -15,6 +15,9 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 public class LaundryServices extends Layout {
 
 	/**

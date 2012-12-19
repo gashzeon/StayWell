@@ -16,6 +16,9 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.border.LineBorder;
 
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 public class Breakfast extends Layout{
 
 	/**

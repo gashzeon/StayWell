@@ -11,6 +11,10 @@ import java.awt.Color;
 import java.awt.Frame;
 
 import javax.swing.SwingConstants;
+
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
