@@ -153,7 +153,7 @@ public class Homepage extends Layout {
 		
 		JButton cityGuide = new JButton("");
 		cityGuide.setBounds(432, 394, 150, 150);
-		cityGuide.setIcon(new ImageIcon(Homepage.class.getResource("/staywll/image/cityguide.png")));
+		cityGuide.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/cityguide.png")));
 		cityGuide.setBorder(null);
 		cityGuide.setBorderPainted(false);
 		cityGuide.setContentAreaFilled(false);

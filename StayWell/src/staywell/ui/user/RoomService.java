@@ -64,7 +64,7 @@ public class RoomService extends Layout{
 			}
 		});
 		foodAndBeverages.setContentAreaFilled(false);
-		foodAndBeverages.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/food&beverges.png")));
+		foodAndBeverages.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/food&beverges.png")));
 		foodAndBeverages.setBorderPainted(false);
 		foodAndBeverages.setBorder(null);
 		foodAndBeverages.setBounds(436, 296, 150, 150);
@@ -89,7 +89,7 @@ public class RoomService extends Layout{
 			}
 		});
 		LaundryServices.setContentAreaFilled(false);
-		LaundryServices.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/cleaningservices.png")));
+		LaundryServices.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/cleaningservices.png")));
 		LaundryServices.setBorderPainted(false);
 		LaundryServices.setBorder(null);
 		LaundryServices.setBounds(143, 296, 150, 150);

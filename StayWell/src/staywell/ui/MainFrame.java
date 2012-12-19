@@ -14,7 +14,6 @@ import staywell.ui.user.*;
 public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
-	private static PointRedemption pointRedemption;
 	private static Homepage homepage;
 	private static Taxi taxi;
 	private static RoomService roomService;
@@ -22,7 +21,6 @@ public class MainFrame extends JFrame {
 	private static CleaningServices cleaningServices;
 	private static Breakfast breakfast;
 	private static Meals meals;
-	private static FacilitiesReservation facilitiesReservation;
 	private static Bluetooth bluetooth;
 	private static Login login;
 	private static Feedback feedBack;
@@ -47,7 +45,7 @@ public class MainFrame extends JFrame {
 		return checkOut;
 	}
 	public Restaurant getRestaurant(){
-		return restaurant
+		return restaurant;
 	}
 	public RoomService getRoomService(){
 		return roomService;
@@ -57,10 +55,6 @@ public class MainFrame extends JFrame {
 	}
 	public Homepage getHomePage(){
 		return homepage;
-	}
-	
-	public PointRedemption getPointRedemption(){
-		return pointRedemption;
 	}
 	public LaundryServices getLaundryServices(){
 		return laundrySerivces;
@@ -73,9 +67,6 @@ public class MainFrame extends JFrame {
 	}
 	public Meals getMeals(){
 		return meals;
-	}
-	public FacilitiesReservation getFacilitiesReservation(){
-		return facilitiesReservation;
 	}
 	public Bluetooth getBluetooth(){
 		return bluetooth;
@@ -94,14 +85,12 @@ public class MainFrame extends JFrame {
 					MainFrame frame = new MainFrame();
 					
 					taxi = new Taxi(frame);
-					pointRedemption = new PointRedemption(frame);
 					roomService = new RoomService(frame);
 					homepage = new Homepage(frame);
 					laundrySerivces = new LaundryServices(frame);
 					cleaningServices = new CleaningServices(frame);
 					breakfast = new Breakfast(frame);
 					meals = new Meals(frame);
-					facilitiesReservation = new FacilitiesReservation(frame);
 					bluetooth = new Bluetooth(frame);
 					login = new Login(frame);
 					ballroom = new Ballroom(frame);

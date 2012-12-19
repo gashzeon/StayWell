@@ -135,7 +135,7 @@ public class Meals extends Layout{
 		JButton cashing = new JButton("");
 		cashing.setContentAreaFilled(false);
 		cashing.setBorderPainted(false);
-		cashing.setIcon(new ImageIcon(Homepage.class.getResource("//staywell/image/Cashing70X70.png")));
+		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing70X70.png")));
 		cashing.setBorder(null);
 		cashing.setBounds(477, 641, 70, 70);
 		add(cashing);

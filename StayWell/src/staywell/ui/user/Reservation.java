@@ -100,7 +100,7 @@ public class Reservation extends Layout {
 		RestaurantIcon.setBorderPainted(false);
 		RestaurantIcon.setContentAreaFilled(false);
 		RestaurantIcon.setBounds(448, 218, 150, 150);
-		RestaurantIcon.setIcon(new javax.swing.ImageIcon(Reservation.class.getResource("/Image1/restaurant.png")));
+		RestaurantIcon.setIcon(new javax.swing.ImageIcon(Reservation.class.getResource("/staywell/image/restaurant.png")));
 		add(RestaurantIcon);
 		
 		JLabel restaurant = new JLabel("Restaurant");
@@ -115,7 +115,7 @@ public class Reservation extends Layout {
 		ballRoomIcon.setContentAreaFilled(false);
 		ballRoomIcon.setBounds(718, 218, 150, 150);
 		add(ballRoomIcon);
-		ballRoomIcon.setIcon(new ImageIcon(Reservation.class.getResource("/Image1/ballroom.png")));
+		ballRoomIcon.setIcon(new ImageIcon(Reservation.class.getResource("/staywell/image/ballroom.png")));
 		
 		JLabel ballRoom = new JLabel("Ballroom");
 		ballRoom.setForeground(Color.RED);
