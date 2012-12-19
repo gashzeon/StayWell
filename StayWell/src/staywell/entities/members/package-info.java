@@ -5,4 +5,4 @@
  * @author adrian
  *
  */
-package staywell.members;
+package staywell.entities.members;
