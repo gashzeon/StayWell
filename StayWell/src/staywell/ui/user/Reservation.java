@@ -44,6 +44,8 @@ public class Reservation extends Layout {
 	/**
 	 * Create the panel.
 	 */
+	private MainFrame f = null;
+	
 	public Reservation() {
 		
 		setBounds(new Rectangle(0, 0, 1024, 768));
