@@ -2,6 +2,7 @@ package staywell.ui.user;
 
 import java.awt.Rectangle;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Dimension;
@@ -12,6 +13,8 @@ import staywell.ui.MainFrame;
 
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Bluetooth extends Layout{
 
@@ -34,6 +37,14 @@ public class Bluetooth extends Layout{
 		promtmsg.setFont(new Font("Candara", Font.BOLD, 24));
 		promtmsg.setBounds(215, 444, 594, 50);
 		add(promtmsg);
+		
+		JButton logo = new JButton();
+		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
+		logo.setBounds(2, 641, 110, 110);
+		logo.setBorder(null);
+		logo.setBorderPainted(false);
+		logo.setContentAreaFilled(false);
+		add(logo);
 		
 		super.setLayout();
 	}

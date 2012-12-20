@@ -12,6 +12,9 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
@@ -92,6 +95,25 @@ public class LaundryServices extends Layout {
 		lblLaundryServices.setFont(new Font("Candara", Font.BOLD, 30));
 		lblLaundryServices.setBounds(399, 11, 226, 30);
 		add(lblLaundryServices);
+		
+		JButton logo = new JButton();
+		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
+		logo.setBounds(2, 641, 110, 110);
+		logo.setBorder(null);
+		logo.setBorderPainted(false);
+		logo.setContentAreaFilled(false);
+		logo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			Homepage homepage = f.getHomePage();
+				f.getContentPane().removeAll();
+				f.getContentPane().add(homepage);
+				f.repaint();
+				f.revalidate();
+				f.setVisible(true);
+			}
+		});
+		add(logo);
+		
 		super.setLayout();
 	}
 

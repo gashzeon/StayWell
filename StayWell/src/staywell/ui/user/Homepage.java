@@ -212,6 +212,15 @@ public class Homepage extends Layout {
 		taxiBookingLb.setFont(new Font("Candara", Font.BOLD, 20));
 		taxiBookingLb.setBounds(592, 718, 128, 21);
 		add(taxiBookingLb);
+		
+		
+		JButton logo = new JButton();
+		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
+		logo.setBounds(2, 641, 110, 110);
+		logo.setBorder(null);
+		logo.setBorderPainted(false);
+		logo.setContentAreaFilled(false);
+		add(logo);
 
 		// To set the background image
 		super.setLayout();

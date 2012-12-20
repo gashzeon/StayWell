@@ -28,23 +28,6 @@ public class Layout extends JPanel {
 		
 	}
 	public void setLayout(){
-		JButton logo = new JButton();
-		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
-		logo.setBounds(2, 641, 110, 110);
-		logo.setBorder(null);
-		logo.setBorderPainted(false);
-		logo.setContentAreaFilled(false);
-		logo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			Homepage homepage = f.getHomePage();
-				f.getContentPane().removeAll();
-				f.getContentPane().add(homepage);
-				f.repaint();
-				f.revalidate();
-				f.setVisible(true);
-			}
-		});
-		add(logo);
 		// To set the background image
 
 		JLabel Background = new JLabel("");

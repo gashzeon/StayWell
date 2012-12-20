@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
 
@@ -75,6 +77,23 @@ public class Taxi extends Layout {
 		lblTaxi.setBounds(482, 11, 60, 30);
 		add(lblTaxi);
 		
+		JButton logo = new JButton();
+		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
+		logo.setBounds(2, 641, 110, 110);
+		logo.setBorder(null);
+		logo.setBorderPainted(false);
+		logo.setContentAreaFilled(false);
+		logo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			Homepage homepage = f.getHomePage();
+				f.getContentPane().removeAll();
+				f.getContentPane().add(homepage);
+				f.repaint();
+				f.revalidate();
+				f.setVisible(true);
+			}
+		});
+		add(logo);
 		
 		super.setLayout();
 	}

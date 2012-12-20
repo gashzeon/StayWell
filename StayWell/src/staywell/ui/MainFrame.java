@@ -29,6 +29,8 @@ public class MainFrame extends JFrame {
 	private static HotelFacilities hotelFacilities;
 	private static CheckOut checkOut;
 	private static Restaurant restaurant;
+	private static PointRedemption pointRedemption;
+	private static FacilitiesReservation facilitiesReservation;
 	/**
 	 * Launch the application.
 	 */
@@ -77,7 +79,12 @@ public class MainFrame extends JFrame {
 	public Feedback getFeedBack(){
 		return feedBack;
 	}
-	
+	public PointRedemption getPointRedemption(){
+		return pointRedemption;
+	}
+	public FacilitiesReservation getFacilitiesReservation(){
+		return facilitiesReservation;
+	}
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -98,6 +105,8 @@ public class MainFrame extends JFrame {
 					hotelFacilities = new HotelFacilities(frame);
 					checkOut = new CheckOut(frame);
 					restaurant = new Restaurant(frame);
+					pointRedemption = new PointRedemption(frame);
+					facilitiesReservation = new FacilitiesReservation(frame);
 					
 					frame.getContentPane().add(login);
 					login.setVisible(true);

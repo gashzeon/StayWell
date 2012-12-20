@@ -90,6 +90,14 @@ public class Login extends Layout {
 		btnLogin.setBounds(168, 133, 102, 25);
 		panel_1.add(btnLogin);
 		
+		JButton logo = new JButton();
+		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
+		logo.setBounds(2, 641, 110, 110);
+		logo.setBorder(null);
+		logo.setBorderPainted(false);
+		logo.setContentAreaFilled(false);
+		add(logo);
+		
 		super.setLayout();
 	}
 	public Login(MainFrame frame)
