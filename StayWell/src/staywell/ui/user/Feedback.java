@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
+import javax.swing.SwingConstants;
 
 
 public class Feedback extends Layout {
@@ -113,6 +114,13 @@ public class Feedback extends Layout {
 			}
 		});
 		add(logo);
+		
+		JLabel label = new JLabel("Order!");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(Color.RED);
+		label.setFont(new Font("Candara", Font.BOLD, 20));
+		label.setBounds(482, 592, 60, 28);
+		add(label);
 		
 		super.setLayout();
 	}

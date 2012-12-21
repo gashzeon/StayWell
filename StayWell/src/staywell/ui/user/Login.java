@@ -18,6 +18,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import staywell.entities.User;
+import staywell.entities.dao.LoginDAO;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -31,6 +33,7 @@ public class Login extends Layout {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private MainFrame f=null;
+	private JLabel validateLb;
 	/**
 	 * Launch the application.
 	 */
@@ -43,7 +46,7 @@ public class Login extends Layout {
 		setBounds(new Rectangle(0,0,1024,768));
 		setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
+		final JPanel panel_1 = new JPanel();
 		panel_1.setOpaque(false);
 		panel_1.setBounds(307, 281, 400, 196);
 		add(panel_1);
@@ -72,16 +75,38 @@ public class Login extends Layout {
 		
 		JButton btnLogin = new JButton("Login");
 		
+	
+		
 		
 		btnLogin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().equals(null)){
+					validateLb = new JLabel("Please Enter Your Username ");
+					validateLb.setBounds(0, 22, 400, 35);
+					panel_1.add(validateLb);
+				}
+				else if(passwordField.getText().equals(null)){
+					validateLb = new JLabel("Please Enter Your Password");
+					validateLb.setBounds(0, 22, 400, 35);
+					panel_1.add(validateLb);
+					panel_1.repaint();
+				}
+				User user = new User();
+				user.setPassword(passwordField.getText());
+				user.setUserName(textField.getText());
+				User user2 = new User();
+				user2=LoginDAO.Login(user);
+				if(LoginDAO.successLogin == true ){
+					Homepage homepage = f.getHomePage();
+					f.getContentPane().removeAll();
+					f.getContentPane().add(homepage);
+					f.repaint();
+					f.revalidate();
+					f.setVisible(true);
+				}
 				
-				Homepage homepage = f.getHomePage();
-				f.getContentPane().removeAll();
-				f.getContentPane().add(homepage);
-				f.repaint();
-				f.revalidate();
-				f.setVisible(true);
+						
 			}
 		});
 		
@@ -89,6 +114,8 @@ public class Login extends Layout {
 		btnLogin.setBorder(null);
 		btnLogin.setBounds(168, 133, 102, 25);
 		panel_1.add(btnLogin);
+		
+		
 		
 		JButton logo = new JButton();
 		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));

@@ -1,11 +1,47 @@
 package staywell.entities;
 
-public class Member {
+public class User {
 	private String userName;
 	private String password; 
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String nationality;
+	private String gender;
+	private String dob;
+	private String address;
+	private String occupation;
+	
+	public String getNationality() {
+		return nationality;
+	}
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getOccupation() {
+		return occupation;
+	}
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
 	public String getEmail() {
 		return email;
 	}
