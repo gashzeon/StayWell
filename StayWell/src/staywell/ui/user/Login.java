@@ -75,37 +75,40 @@ public class Login extends Layout {
 		
 		JButton btnLogin = new JButton("Login");
 		
-	
+		validateLb = new JLabel("");
+		validateLb.setBounds(158, 22, 200, 35);
+		panel_1.add(validateLb);
 		
 		
 		btnLogin.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				if(textField.getText().equals(null)){
-					validateLb = new JLabel("Please Enter Your Username ");
-					validateLb.setBounds(0, 22, 400, 35);
-					panel_1.add(validateLb);
+				if(textField.getText().equals("")){
+					validateLb.setText("Please Enter Your Username");
 				}
-				else if(passwordField.getText().equals(null)){
-					validateLb = new JLabel("Please Enter Your Password");
-					validateLb.setBounds(0, 22, 400, 35);
-					panel_1.add(validateLb);
-					panel_1.repaint();
+				else if(passwordField.getText().equals("")){
+					validateLb.setText("Please Enter Your Password");
 				}
-				User user = new User();
-				user.setPassword(passwordField.getText());
-				user.setUserName(textField.getText());
-				User user2 = new User();
-				user2=LoginDAO.Login(user);
-				if(LoginDAO.successLogin == true ){
-					Homepage homepage = f.getHomePage();
-					f.getContentPane().removeAll();
-					f.getContentPane().add(homepage);
-					f.repaint();
-					f.revalidate();
-					f.setVisible(true);
+				else{
+					User user = new User();
+					user.setPassword(passwordField.getText());
+					user.setUserName(textField.getText());
+					User user2 = new User();
+					user2=LoginDAO.Login(user);
+					if(LoginDAO.successLogin == true ){
+						Homepage homepage = f.getHomePage();
+						f.getContentPane().removeAll();
+						f.getContentPane().add(homepage);
+						f.repaint();
+						f.revalidate();
+						f.setVisible(true);
+					}
+					else{
+						validateLb.setText("Wrong Username or Password");
+						textField.setText("");
+						passwordField.setText("");
+					}
 				}
-				
 						
 			}
 		});
