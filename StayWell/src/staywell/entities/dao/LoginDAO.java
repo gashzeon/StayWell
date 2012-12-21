@@ -1,6 +1,7 @@
 package staywell.entities.dao;
 
 import staywell.entities.*;
+import sun.swing.SwingUtilities2.Section;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +16,7 @@ public class LoginDAO {
 	static ResultSet rs1 = null;
 	static PreparedStatement pstmt1 = null;
 	public static boolean successLogin = false;
-	
+
 	public static User Login(User user) {
 		String userName = user.getUserName();
 		Statement stmt = null;
@@ -32,7 +33,7 @@ public class LoginDAO {
 
             // if user does not exist set the isValid variable to false
             if (!more) {
-              System.out.println("member with the User Name = " + userName + " does not exst");
+              System.out.println("Username not found");
             }
 
             // if user exists set the isValid variable to true

@@ -1,5 +1,6 @@
 package staywell.ui.user;
 
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,7 +18,10 @@ public class PointRedemption extends Layout {
 	 */
 	private MainFrame f = null;
 	public PointRedemption() {
-
+		setBounds(new Rectangle(0, 0, 1024, 768));
+		setLayout(null);
+		
+		
 		JButton logo = new JButton();
 		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
 		logo.setBounds(2, 641, 110, 110);
