@@ -9,12 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 
+import staywell.entities.Session;
 import staywell.ui.user.*;
 
 public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
-	private static Homepage homepage;
+	private static Homepage homepage = new Homepage();
 	private static Taxi taxi;
 	private static RoomService roomService;
 	private static LaundryServices laundrySerivces;
@@ -31,9 +32,16 @@ public class MainFrame extends JFrame {
 	private static Restaurant restaurant;
 	private static PointRedemption pointRedemption;
 	private static FacilitiesReservation facilitiesReservation;
+	public static Session session;
 	/**
 	 * Launch the application.
 	 */
+	public void setSession(Session session){
+		this.session = session;
+	}
+	public Session getSession(){
+		return session;
+	}
 	public Ballroom getBallroom(){
 		return ballroom;
 	}
@@ -99,7 +107,6 @@ public class MainFrame extends JFrame {
 					breakfast = new Breakfast(frame);
 					meals = new Meals(frame);
 					bluetooth = new Bluetooth(frame);
-					login = new Login(frame);
 					ballroom = new Ballroom(frame);
 					reservation = new Reservation(frame);
 					hotelFacilities = new HotelFacilities(frame);
@@ -108,8 +115,8 @@ public class MainFrame extends JFrame {
 					pointRedemption = new PointRedemption(frame);
 					facilitiesReservation = new FacilitiesReservation(frame);
 					
-					frame.getContentPane().add(login);
-					login.setVisible(true);
+					frame.getContentPane().add(homepage);
+					homepage.setVisible(true);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

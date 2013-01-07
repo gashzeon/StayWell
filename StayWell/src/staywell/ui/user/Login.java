@@ -18,9 +18,11 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import staywell.entities.Session;
 import staywell.entities.User;
 import staywell.entities.dao.LoginDAO;
 import staywell.ui.Layout;
+import staywell.ui.LoginFrame;
 import staywell.ui.MainFrame;
 
 import java.awt.event.ActionListener;
@@ -32,7 +34,8 @@ public class Login extends Layout {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
-	private MainFrame f=null;
+	private LoginFrame lf=null;
+	private MainFrame f= new MainFrame();
 	private JLabel validateLb;
 	/**
 	 * Launch the application.
@@ -41,6 +44,7 @@ public class Login extends Layout {
 
 	/**
 	 * Create the frame.
+	 * 
 	 */
 	public Login() {
 		setBounds(new Rectangle(0,0,1024,768));
@@ -95,9 +99,14 @@ public class Login extends Layout {
 					user.setUserName(textField.getText());
 					User user2 = new User();
 					user2=LoginDAO.Login(user);
+					Session session = new Session();
+					session.setName(user2.getFirstName() + " " + user2.getLastName());
+					f.session = session;
+					System.out.println(session.getName() + " Login");
 					if(LoginDAO.successLogin == true ){
-						Homepage homepage = f.getHomePage();
-						f.getContentPane().removeAll();
+						lf.setVisible(false);
+						Homepage homepage = new Homepage();
+						homepage = f.getHomePage();
 						f.getContentPane().add(homepage);
 						f.repaint();
 						f.revalidate();
@@ -130,9 +139,9 @@ public class Login extends Layout {
 		
 		super.setLayout();
 	}
-	public Login(MainFrame frame)
+	public Login(LoginFrame frame)
 	{
 		this();
-		f = frame;
+		lf = frame;
 	}
 }

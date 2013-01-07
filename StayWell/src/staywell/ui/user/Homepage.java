@@ -12,13 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import staywell.entities.Session;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
+import javax.swing.JTextField;
 
 public class Homepage extends Layout {
 
 	private JPanel contentPane;
 	private MainFrame f = null;
+	private JLabel nameLb;
+	private String name;
+	static Session session;
 	
 	public Homepage() {
 		setBounds(new Rectangle(0, 0, 1024, 768));
@@ -30,6 +35,7 @@ public class Homepage extends Layout {
 		pointRedemptionLb.setFont(new Font("Candara", Font.BOLD, 20));
 		pointRedemptionLb.setBounds(712, 555, 172, 22);
 		add(pointRedemptionLb);
+		
 		
 		JButton roomService = new JButton("");
 		roomService.addActionListener(new ActionListener() {
@@ -221,6 +227,20 @@ public class Homepage extends Layout {
 		logo.setBorderPainted(false);
 		logo.setContentAreaFilled(false);
 		add(logo);
+		
+		Session session = new Session();
+		if(f.session != null){
+			session = f.session;
+		}
+		name = session.getName();
+		System.out.println(name +  " Homepage");
+		JLabel nameLb = new JLabel("this is a test");
+		nameLb.setText(name);
+		nameLb.setForeground(Color.RED);
+		nameLb.setFont(new Font("Candara", Font.BOLD, 20));
+		nameLb.setBounds(0, 0, 210, 38);
+		add(nameLb);
+		
 
 		// To set the background image
 		super.setLayout();
@@ -230,6 +250,6 @@ public class Homepage extends Layout {
 		this();
 		f = frame;
 	}
-	
+
 }
  
