@@ -34,7 +34,7 @@ import org.jdesktop.swingx.mapviewer.WaypointPainter;
  * a OSM map of Europe
  * @author Martin Steiger
  */
-public class Sample4
+public class CityGuides
 {
 	/**
 	 * @param args the program args (ignored)
