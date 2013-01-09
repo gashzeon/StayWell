@@ -1,4 +1,4 @@
-package sample4_fancy;
+package staywell.ui.user.cityguides;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

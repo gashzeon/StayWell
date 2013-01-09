@@ -7,7 +7,7 @@
  * and open the template in the editor.
  */
 
-package sample4_fancy;
+package staywell.ui.user.cityguides;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

@@ -1,5 +1,5 @@
 
-package sample4_fancy;
+package staywell.ui.user.cityguides;
 
 import java.awt.Composite;
 import java.awt.CompositeContext;
