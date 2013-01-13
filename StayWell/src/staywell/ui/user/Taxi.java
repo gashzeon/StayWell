@@ -23,9 +23,10 @@ public class Taxi extends Layout {
 	 * Create the panel.
 	 */
 	
-	private MainFrame f = null;
+	private MainFrame f;
 	
-	public Taxi() {
+	public Taxi(MainFrame frame) {
+		f = frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -85,7 +86,7 @@ public class Taxi extends Layout {
 		logo.setContentAreaFilled(false);
 		logo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Homepage homepage = f.getHomePage();
+				Homepage homepage = new Homepage(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(homepage);
 				f.repaint();
@@ -96,10 +97,6 @@ public class Taxi extends Layout {
 		add(logo);
 		
 		super.setLayout();
-	}
-	public Taxi(MainFrame frame){
-		this();
-		f = frame;
 	}
 }
 

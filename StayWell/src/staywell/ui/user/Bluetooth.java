@@ -21,8 +21,9 @@ public class Bluetooth extends Layout{
 	/**
 	 * Create the panel.
 	 */
-	MainFrame f = null;
-	public Bluetooth() {
+	MainFrame f;
+	public Bluetooth(MainFrame frame) {
+		f = frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -47,9 +48,5 @@ public class Bluetooth extends Layout{
 		add(logo);
 		
 		super.setLayout();
-	}
-	public Bluetooth(MainFrame frame){
-		this();
-		f = frame;
 	}
 }

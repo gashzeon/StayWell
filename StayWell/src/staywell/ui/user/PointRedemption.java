@@ -16,8 +16,9 @@ public class PointRedemption extends Layout {
 	/**
 	 * Create the panel.
 	 */
-	private MainFrame f = null;
-	public PointRedemption() {
+	private MainFrame f;
+	public PointRedemption(MainFrame frame) {
+		f = frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -30,7 +31,7 @@ public class PointRedemption extends Layout {
 		logo.setContentAreaFilled(false);
 		logo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Homepage homepage = f.getHomePage();
+				Homepage homepage = new Homepage(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(homepage);
 				f.repaint();
@@ -41,9 +42,5 @@ public class PointRedemption extends Layout {
 		add(logo);
 		
 		super.setLayout();
-	}
-	public PointRedemption(MainFrame frame){
-		this();
-		f = frame;
 	}
 }

@@ -23,7 +23,7 @@ public class Feedback extends Layout {
 
 	private JPanel contentPane;
 	private JTable table;
-	private MainFrame f=null;
+	private MainFrame f;
 	/**
 	 * Launch the application.
 	 */
@@ -32,7 +32,8 @@ public class Feedback extends Layout {
 	/**
 	 * Create the frame.
 	 */
-	public Feedback() {
+	public Feedback(MainFrame frame) {
+		f = frame;
 		setBounds(new Rectangle(0,0,1024,768));
 		setLayout(null);
 		
@@ -105,7 +106,7 @@ public class Feedback extends Layout {
 		logo.setContentAreaFilled(false);
 		logo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Homepage homepage = f.getHomePage();
+				Homepage homepage = new Homepage(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(homepage);
 				f.repaint();
@@ -123,10 +124,5 @@ public class Feedback extends Layout {
 		add(label);
 		
 		super.setLayout();
-	}
-	public Feedback(MainFrame frame)
-	{
-		this();
-		f = frame;
 	}
 }

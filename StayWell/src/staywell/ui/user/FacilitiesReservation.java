@@ -17,11 +17,12 @@ import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
 public class FacilitiesReservation extends Layout {
-	MainFrame f = null;
+	MainFrame f;
 	/**
 	 * Create the panel.
 	 */
-	public FacilitiesReservation() {
+	public FacilitiesReservation(MainFrame frame) {
+		f=frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -108,7 +109,7 @@ public class FacilitiesReservation extends Layout {
 		logo.setContentAreaFilled(false);
 		logo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Homepage homepage = f.getHomePage();
+				Homepage homepage = new Homepage(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(homepage);
 				f.repaint();
@@ -120,9 +121,4 @@ public class FacilitiesReservation extends Layout {
 		
 		super.setLayout();
 	}
-	public FacilitiesReservation(MainFrame frame){
-		this();
-		f = frame;
-	}
-
 }

@@ -15,7 +15,7 @@ import staywell.ui.user.*;
 public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
-	private static Homepage homepage = new Homepage();
+	private static Homepage homepage;
 	private static Taxi taxi;
 	private static RoomService roomService;
 	private static LaundryServices laundrySerivces;
@@ -36,8 +36,8 @@ public class MainFrame extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public void setSession(Session session){
-		this.session = session;
+	public static void setSession(Session s){
+		session = s;
 	}
 	public Session getSession(){
 		return session;
@@ -99,24 +99,10 @@ public class MainFrame extends JFrame {
 				try {
 					MainFrame frame = new MainFrame();
 					
-					taxi = new Taxi(frame);
-					roomService = new RoomService(frame);
-					homepage = new Homepage(frame);
-					laundrySerivces = new LaundryServices(frame);
-					cleaningServices = new CleaningServices(frame);
-					breakfast = new Breakfast(frame);
-					meals = new Meals(frame);
-					bluetooth = new Bluetooth(frame);
-					ballroom = new Ballroom(frame);
-					reservation = new Reservation(frame);
-					hotelFacilities = new HotelFacilities(frame);
-					checkOut = new CheckOut(frame);
-					restaurant = new Restaurant(frame);
-					pointRedemption = new PointRedemption(frame);
-					facilitiesReservation = new FacilitiesReservation(frame);
+					login = new Login(frame);
 					
-					frame.getContentPane().add(homepage);
-					homepage.setVisible(true);
+					frame.getContentPane().add(login);
+					login.setVisible(true);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

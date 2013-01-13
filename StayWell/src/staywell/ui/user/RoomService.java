@@ -19,11 +19,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class RoomService extends Layout{
-	private MainFrame f = null;
+	private MainFrame f;
 	/**
 	 * Create the panel.
 	 */
-	public RoomService() {
+	public RoomService(MainFrame frame) {
+		f = frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -116,7 +117,7 @@ public class RoomService extends Layout{
 		logo.setContentAreaFilled(false);
 		logo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Homepage homepage = f.getHomePage();
+				Homepage homepage = new Homepage(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(homepage);
 				f.repaint();
@@ -127,10 +128,6 @@ public class RoomService extends Layout{
 		add(logo);
 		
 		super.setLayout();
-	}
-	public RoomService(MainFrame frame){
-		this();
-		f = frame;
 	}
 }
 

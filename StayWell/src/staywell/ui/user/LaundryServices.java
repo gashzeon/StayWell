@@ -26,9 +26,10 @@ public class LaundryServices extends Layout {
 	/**
 	 * Create the panel.
 	 */
-	MainFrame f = new MainFrame();
+	MainFrame f;
 
-	public LaundryServices() {
+	public LaundryServices(MainFrame frame) {
+		f=frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 
@@ -104,7 +105,7 @@ public class LaundryServices extends Layout {
 		logo.setContentAreaFilled(false);
 		logo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Homepage homepage = f.getHomePage();
+				Homepage homepage = new Homepage(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(homepage);
 				f.repaint();
@@ -115,10 +116,5 @@ public class LaundryServices extends Layout {
 		add(logo);
 		
 		super.setLayout();
-	}
-
-	public LaundryServices(MainFrame frame) {
-		this();
-		f = frame;
 	}
 }

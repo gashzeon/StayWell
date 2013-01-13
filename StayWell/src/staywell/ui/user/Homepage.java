@@ -15,17 +15,20 @@ import javax.swing.SwingConstants;
 import staywell.entities.Session;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
+import staywell.ui.user.cityguides.CityGuides;
+
 import javax.swing.JTextField;
 
 public class Homepage extends Layout {
 
 	private JPanel contentPane;
-	private MainFrame f = null;
+	private MainFrame f;
 	private JLabel nameLb;
 	private String name;
 	static Session session;
 	
-	public Homepage() {
+	public Homepage(MainFrame frame) {
+		f = frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -40,7 +43,7 @@ public class Homepage extends Layout {
 		JButton roomService = new JButton("");
 		roomService.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService roomService = f.getRoomService();
+				RoomService roomService = new RoomService(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(roomService);
 				f.repaint();
@@ -73,7 +76,7 @@ public class Homepage extends Layout {
 		JButton feedback = new JButton("");
 		feedback.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Feedback feedBack = f.getFeedBack();
+				Feedback feedBack = new Feedback(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(feedBack);
 				f.repaint();
@@ -135,7 +138,7 @@ public class Homepage extends Layout {
 		JButton pointRedemption = new JButton("");
 		pointRedemption.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			PointRedemption pointRedemption = f.getPointRedemption();
+			PointRedemption pointRedemption = new PointRedemption(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(pointRedemption);
 				f.repaint();
@@ -157,18 +160,24 @@ public class Homepage extends Layout {
 		cityGuideLb.setBounds(432, 555, 150, 22);
 		add(cityGuideLb);
 		
-		JButton cityGuide = new JButton("");
-		cityGuide.setBounds(432, 394, 150, 150);
-		cityGuide.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/cityguide.png")));
-		cityGuide.setBorder(null);
-		cityGuide.setBorderPainted(false);
-		cityGuide.setContentAreaFilled(false);
-		add(cityGuide);
+		JButton cityGuideBtn = new JButton("");
+		cityGuideBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CityGuides cityGuide = new CityGuides();
+				cityGuide.setVisible(true);
+			}
+		});
+		cityGuideBtn.setBounds(432, 394, 150, 150);
+		cityGuideBtn.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/cityguide.png")));
+		cityGuideBtn.setBorder(null);
+		cityGuideBtn.setBorderPainted(false);
+		cityGuideBtn.setContentAreaFilled(false);
+		add(cityGuideBtn);
 		
 		JButton facRes = new JButton("");
 		facRes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FacilitiesReservation facilitiesReservation = f.getFacilitiesReservation();
+				FacilitiesReservation facilitiesReservation = new FacilitiesReservation(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(facilitiesReservation);
 				f.repaint();
@@ -190,7 +199,7 @@ public class Homepage extends Layout {
 		JButton taxi = new JButton("");
 		taxi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Taxi taxi = f.getTaxi();
+				Taxi taxi = new Taxi(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(taxi);
 				f.repaint();
@@ -229,13 +238,11 @@ public class Homepage extends Layout {
 		add(logo);
 		
 		Session session = new Session();
-		if(f.session != null){
-			session = f.session;
+		if(f.getSession() != null){
+			session = f.getSession();
 		}
 		name = session.getName();
-		System.out.println(name +  " Homepage");
-		JLabel nameLb = new JLabel("this is a test");
-		nameLb.setText(name);
+		JLabel nameLb = new JLabel("Welcome " +name);
 		nameLb.setForeground(Color.RED);
 		nameLb.setFont(new Font("Candara", Font.BOLD, 20));
 		nameLb.setBounds(0, 0, 210, 38);
@@ -246,10 +253,10 @@ public class Homepage extends Layout {
 		super.setLayout();
 	}
 	
-	public Homepage(MainFrame frame){
-		this();
-		f = frame;
-	}
+	//public Homepage(MainFrame frame){
+	//	this();
+	//	f = frame;
+	//}
 
 }
  
