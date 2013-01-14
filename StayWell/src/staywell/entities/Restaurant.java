@@ -2,25 +2,43 @@ package staywell.entities;
 
 public class Restaurant {
 	private String type;
-	private String dateTime;
+	private String date;
+	private String timeStart;
+	private String timeEnd;
 	private String name;
+	
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getDateTime() {
-		return dateTime;
+	public String getDate() {
+		return date;
 	}
-	public void setDateTime(String dateTime) {
-		this.dateTime = dateTime;
+	public void setDateTime(String date) {
+		this.date = date;
 	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getTimeStart(){
+		return timeStart;
+	}
+	public void setTimeStart(String timeStart){
+		this.timeStart = timeStart;
+	}
+	public String getTimeEnd(){
+		return timeEnd;
+	}
+	public void setTimeEnd(String timeEnd){
+		this.timeEnd = timeEnd;
 	}
 	
 }

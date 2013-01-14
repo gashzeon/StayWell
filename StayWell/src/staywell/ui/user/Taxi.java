@@ -6,6 +6,8 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Frame;
@@ -64,13 +66,23 @@ public class Taxi extends Layout {
 		orderlb.setBounds(482, 704, 60, 28);
 		add(orderlb);
 		
-		JButton cashing = new JButton("");
-		cashing.setContentAreaFilled(false);
-		cashing.setBorderPainted(false);
-		cashing.setBorder(null);
-		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing70X70.png")));
-		cashing.setBounds(477, 623, 70, 70);
-		add(cashing);
+		JButton book = new JButton("");
+		book.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int n = JOptionPane.showConfirmDialog(
+					    null,
+					    "Are You Sure?",
+					    "Confirmation",
+					    JOptionPane.YES_NO_OPTION);
+				staywell.entities.Taxi taxi = new staywell.entities.Taxi();
+			}
+		});
+		book.setContentAreaFilled(false);
+		book.setBorderPainted(false);
+		book.setBorder(null);
+		book.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing70X70.png")));
+		book.setBounds(477, 623, 70, 70);
+		add(book);
 		
 		JLabel lblTaxi = new JLabel("Taxi");
 		lblTaxi.setForeground(Color.RED);
