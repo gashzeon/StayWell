@@ -31,6 +31,7 @@ import org.jdesktop.swingx.mapviewer.LocalResponseCache;
 import org.jdesktop.swingx.mapviewer.TileFactoryInfo;
 import org.jdesktop.swingx.mapviewer.WaypointPainter;
 
+import staywell.ui.Layout;
 import staywell.ui.user.Homepage;
 
 
@@ -187,6 +188,7 @@ public class CityGuides extends JFrame
 		
 		southPanel.add(logo);
 		southPanel.add(btnSingaporeZoologicalGardens);
+		
 		
 	}
 	public static void main(String[] args)

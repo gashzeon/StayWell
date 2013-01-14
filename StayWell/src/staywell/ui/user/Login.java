@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import staywell.entities.Guest;
 import staywell.entities.Session;
 import staywell.entities.User;
 import staywell.entities.dao.LoginDAO;
@@ -91,16 +92,28 @@ public class Login extends Layout {
 					user.setUserName(textField.getText());
 					User user2 = new User();
 					user2=LoginDAO.Login(user);
+					Guest guest = new Guest();
+					guest.setEmail(user2.getEmail());
+					Guest guest2 = new Guest();
+					guest2 = LoginDAO.Login(guest);
 					Session session = new Session();
 					session.setName(user2.getFirstName() + " " + user2.getLastName());
+					session.setEmail(guest2.getEmail());
+					session.setMembership(guest2.getMembership());
 					f.setSession(session);
 					if(LoginDAO.successLogin == true ){
-						Homepage homepage = new Homepage(f);
-						f.getContentPane().removeAll();
-						f.getContentPane().add(homepage);
-						f.repaint();
-						f.revalidate();
-						f.setVisible(true);
+						if(user.getPassword().equals(user2.getPassword())){
+							Homepage homepage = new Homepage(f);
+							f.getContentPane().removeAll();
+							f.getContentPane().add(homepage);
+							f.repaint();
+							f.revalidate();
+							f.setVisible(true);
+						}
+						else{
+							validateLb.setText("Wrong Password");
+							passwordField.setText("");
+						}
 					}
 					else{
 						validateLb.setText("Wrong Username or Password");

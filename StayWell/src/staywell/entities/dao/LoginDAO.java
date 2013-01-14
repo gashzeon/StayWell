@@ -59,6 +59,8 @@ public class LoginDAO {
                 user.setGender(gender);
                 user.setNationality(nationality);
                 successLogin = true;
+                
+                
             }
         } catch (Exception e) {
         	e.printStackTrace();
@@ -67,5 +69,46 @@ public class LoginDAO {
 		return  user;
 	}
 
+	public static Guest Login(Guest guest) {
+		String email = guest.getEmail();
+		Statement stmt = null;
+		
+        String searchQuery = "select * from guest where email ='"
+                + email + "' ";
+
+        try {
+            // connect to DB
+            currentCon = DBConnectionManager.getConnection();
+            stmt = currentCon.createStatement();
+            rs = stmt.executeQuery(searchQuery);
+            boolean more = rs.next();
+
+            // if user does not exist set the isValid variable to false
+            if (!more) {
+              System.out.println("Username not found");
+            }
+
+            // if user exists set the isValid variable to true
+            else if (more) {
+                String email1 = rs.getString("email");
+                String membership = rs.getString("membership");
+                int points = rs.getInt("points");
+                int roomNo = rs.getInt("roomNumber");
+                double cost = rs.getDouble("cost");
+                
+                guest = new Guest();
+                guest.setEmail(email1);
+                guest.setMembership(membership);
+                guest.setPoint(points);
+                guest.setRoomNumber(roomNo);
+                guest.setCost(cost);
+
+            }
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+
+		return  guest;
+	}
 	
 }

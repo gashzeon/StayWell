@@ -10,12 +10,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 import staywell.entities.Session;
@@ -33,7 +37,27 @@ public class Layout extends JPanel {
 	}
 	public void setLayout(){
 		// To set the background image]
+		final JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setBounds(621, 11, 331, 52);
+		lblNewLabel_3.setFont(new Font("Candara", Font.BOLD, 20));
+		add(lblNewLabel_3);
+
+		final DateFormat timeFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
+		ActionListener timerListener = new ActionListener()
+		{
+		public void actionPerformed(ActionEvent e)
+		{
+		Date date = new Date();
+		String time = timeFormat.format(date);
+		lblNewLabel_3.setText(time);
+		}
+		};
+		Timer timer = new Timer(1000, timerListener);
 		
+		// to make sure it does not wait one second at the start
+				timer.setInitialDelay(0);
+				timer.start();
+
 
 		JLabel Background = new JLabel("");
 		Background.setIcon(new ImageIcon(Layout.class

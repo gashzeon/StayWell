@@ -32,8 +32,8 @@ public class Meals extends Layout{
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 
-		String columnNames[] = { "BREAKFAST MENU", "NO."};
-		String dataValues[][] = { { "BREAKFAST MENU", "NO"},
+		String columnNames[] = { "MEALS MENU", "NO."};
+		String dataValues[][] = { { "MEALS MENU", "NO"},
 				{ "Thai Style Fried Rice $8", "" },
 				{ "Hong Kong Style Fried Rice $8", ""},
 				{ "Beet and Braised Bacon $10", ""},

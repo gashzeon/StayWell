@@ -5,12 +5,16 @@ import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
 import staywell.entities.Session;
 import staywell.ui.Layout;
@@ -25,10 +29,16 @@ public class Homepage extends Layout {
 	private MainFrame f;
 	private JLabel nameLb;
 	private String name;
-	static Session session;
 	
 	public Homepage(MainFrame frame) {
 		f = frame;
+		
+		Session session = new Session();
+		if(f.getSession() != null){
+			session = f.getSession();
+		}
+		name = session.getName();
+		
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -237,26 +247,18 @@ public class Homepage extends Layout {
 		logo.setContentAreaFilled(false);
 		add(logo);
 		
-		Session session = new Session();
-		if(f.getSession() != null){
-			session = f.getSession();
-		}
-		name = session.getName();
+		
 		JLabel nameLb = new JLabel("Welcome " +name);
 		nameLb.setForeground(Color.RED);
 		nameLb.setFont(new Font("Candara", Font.BOLD, 20));
 		nameLb.setBounds(0, 0, 210, 38);
 		add(nameLb);
 		
-
+		System.out.println(session.getEmail() + " " + session.getMembership());
 		// To set the background image
 		super.setLayout();
 	}
 	
-	//public Homepage(MainFrame frame){
-	//	this();
-	//	f = frame;
-	//}
 
 }
  
