@@ -29,16 +29,18 @@ public class Layout extends JPanel {
 	
 	private MainFrame f = null;
 	private String name;
+	protected int points;
 	/**
 	 * Create the panel.
 	 */
 	public Layout() {
 		
+		
 	}
 	public void setLayout(){
 		// To set the background image]
 		final JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(621, 11, 331, 52);
+		lblNewLabel_3.setBounds(800, 0, 331, 52);
 		lblNewLabel_3.setFont(new Font("Candara", Font.BOLD, 20));
 		add(lblNewLabel_3);
 

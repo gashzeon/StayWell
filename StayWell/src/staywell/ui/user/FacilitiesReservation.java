@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import staywell.entities.Session;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -23,6 +24,13 @@ public class FacilitiesReservation extends Layout {
 	 */
 	public FacilitiesReservation(MainFrame frame) {
 		f=frame;
+		
+		Session session = new Session();
+		if(f.getSession() != null){
+			session = f.getSession();
+		}
+		points = session.getPoints();
+		
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -119,6 +127,11 @@ public class FacilitiesReservation extends Layout {
 		});
 		add(logo);
 		
+		JLabel pointLb = new JLabel("Reward Points: " + points);
+		pointLb.setForeground(Color.RED);
+		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
+		pointLb.setBounds(0, 0, 200, 38);
+		add(pointLb);
 		super.setLayout();
 	}
 }

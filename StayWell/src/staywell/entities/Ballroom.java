@@ -3,9 +3,7 @@ package staywell.entities;
 public class Ballroom {
 	private String name;
 	private String type;
-	private String date;
-	private String timeStart;
-	private String timeEnd;
+	private String dateTime;
 	
 	
 	public String getName() {
@@ -20,22 +18,10 @@ public class Ballroom {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getDate() {
-		return date;
+	public String getDateTime() {
+		return dateTime;
 	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getTimeStart(){
-		return timeStart;
-	}
-	public void setTimeStart(String timeStart){
-		this.timeStart = timeStart;
-	}
-	public String getTimeEnd(){
-		return timeEnd;
-	}
-	public void setTimeEnd(String timeEnd){
-		this.timeEnd = timeEnd;
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
 	}
 }

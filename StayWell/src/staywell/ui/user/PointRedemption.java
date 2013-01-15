@@ -1,13 +1,17 @@
 package staywell.ui.user;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import staywell.entities.Session;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -19,6 +23,13 @@ public class PointRedemption extends Layout {
 	private MainFrame f;
 	public PointRedemption(MainFrame frame) {
 		f = frame;
+		
+		Session session = new Session();
+		if(f.getSession() != null){
+			session = f.getSession();
+		}
+		points = session.getPoints();
+		
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -41,6 +52,11 @@ public class PointRedemption extends Layout {
 		});
 		add(logo);
 		
+		JLabel pointLb = new JLabel("Reward Points: " + points);
+		pointLb.setForeground(Color.RED);
+		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
+		pointLb.setBounds(0, 0, 200, 38);
+		add(pointLb);
 		super.setLayout();
 	}
 }

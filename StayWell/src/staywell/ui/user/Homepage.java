@@ -29,6 +29,7 @@ public class Homepage extends Layout {
 	private MainFrame f;
 	private JLabel nameLb;
 	private String name;
+	private int points;
 	
 	public Homepage(MainFrame frame) {
 		f = frame;
@@ -38,6 +39,7 @@ public class Homepage extends Layout {
 			session = f.getSession();
 		}
 		name = session.getName();
+		points = session.getPoints();
 		
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
@@ -69,7 +71,7 @@ public class Homepage extends Layout {
 		add(roomService);
 		
 		JButton cashing = new JButton("");
-		cashing.setBounds(914, 0, 100, 100);
+		cashing.setBounds(914, 606, 100, 100);
 		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing.png")));
 		cashing.setBorder(null);
 		cashing.setBorderPainted(false);
@@ -105,7 +107,7 @@ public class Homepage extends Layout {
 		checkOutLb.setForeground(Color.RED);
 		checkOutLb.setHorizontalAlignment(SwingConstants.CENTER);
 		checkOutLb.setFont(new Font("Candara", Font.BOLD, 20));
-		checkOutLb.setBounds(914, 111, 100, 22);
+		checkOutLb.setBounds(914, 717, 100, 22);
 		add(checkOutLb);
 		
 		JButton valetParking = new JButton("");
@@ -248,13 +250,18 @@ public class Homepage extends Layout {
 		add(logo);
 		
 		
-		JLabel nameLb = new JLabel("Welcome " +name);
+		JLabel nameLb = new JLabel("Welcome " +name );
 		nameLb.setForeground(Color.RED);
 		nameLb.setFont(new Font("Candara", Font.BOLD, 20));
-		nameLb.setBounds(0, 0, 210, 38);
+		nameLb.setBounds(0, 0, 400, 38);
 		add(nameLb);
 		
-		System.out.println(session.getEmail() + " " + session.getMembership());
+		JLabel pointLb = new JLabel("Reward Points: " + points);
+		pointLb.setForeground(Color.RED);
+		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
+		pointLb.setBounds(0, 30, 200, 38);
+		add(pointLb);
+		
 		// To set the background image
 		super.setLayout();
 	}

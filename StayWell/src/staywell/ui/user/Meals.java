@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.border.LineBorder;
 
+import staywell.entities.Session;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -29,6 +30,13 @@ public class Meals extends Layout{
 	MainFrame f;
 	public Meals(MainFrame frame) {
 		f = frame;
+		
+		Session session = new Session();
+		if(f.getSession() != null){
+			session = f.getSession();
+		}
+		points = session.getPoints();
+		
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 
@@ -168,6 +176,11 @@ public class Meals extends Layout{
 		});
 		add(logo);
 		
+		JLabel pointLb = new JLabel("Reward Points: " + points);
+		pointLb.setForeground(Color.RED);
+		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
+		pointLb.setBounds(0, 0, 200, 38);
+		add(pointLb);
 		super.setLayout();
 	}
 }

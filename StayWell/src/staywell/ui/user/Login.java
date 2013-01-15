@@ -100,6 +100,7 @@ public class Login extends Layout {
 					session.setName(user2.getFirstName() + " " + user2.getLastName());
 					session.setEmail(guest2.getEmail());
 					session.setMembership(guest2.getMembership());
+					session.setPoints(guest2.getPoints());
 					f.setSession(session);
 					if(LoginDAO.successLogin == true ){
 						if(user.getPassword().equals(user2.getPassword())){

@@ -6,8 +6,6 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Frame;
@@ -16,6 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
 
+import staywell.entities.Session;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -29,6 +28,13 @@ public class Taxi extends Layout {
 	
 	public Taxi(MainFrame frame) {
 		f = frame;
+		
+		Session session = new Session();
+		if(f.getSession() != null){
+			session = f.getSession();
+		}
+		points = session.getPoints();
+		
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
@@ -66,23 +72,13 @@ public class Taxi extends Layout {
 		orderlb.setBounds(482, 704, 60, 28);
 		add(orderlb);
 		
-		JButton book = new JButton("");
-		book.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int n = JOptionPane.showConfirmDialog(
-					    null,
-					    "Are You Sure?",
-					    "Confirmation",
-					    JOptionPane.YES_NO_OPTION);
-				staywell.entities.Taxi taxi = new staywell.entities.Taxi();
-			}
-		});
-		book.setContentAreaFilled(false);
-		book.setBorderPainted(false);
-		book.setBorder(null);
-		book.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing70X70.png")));
-		book.setBounds(477, 623, 70, 70);
-		add(book);
+		JButton cashing = new JButton("");
+		cashing.setContentAreaFilled(false);
+		cashing.setBorderPainted(false);
+		cashing.setBorder(null);
+		cashing.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Cashing70X70.png")));
+		cashing.setBounds(477, 623, 70, 70);
+		add(cashing);
 		
 		JLabel lblTaxi = new JLabel("Taxi");
 		lblTaxi.setForeground(Color.RED);
@@ -107,6 +103,12 @@ public class Taxi extends Layout {
 			}
 		});
 		add(logo);
+		
+		JLabel pointLb = new JLabel("Reward Points: " + points);
+		pointLb.setForeground(Color.RED);
+		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
+		pointLb.setBounds(0, 0, 200, 38);
+		add(pointLb);
 		
 		super.setLayout();
 	}

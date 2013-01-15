@@ -14,6 +14,7 @@ import java.awt.Frame;
 
 import javax.swing.SwingConstants;
 
+import staywell.entities.Session;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -33,20 +34,24 @@ public class RoomService extends Layout {
 	 */
 	public RoomService(MainFrame frame) {
 		f = frame;
-
-		final DateFormat timeFormat = new SimpleDateFormat(
-				"HH:mm:ss");
+		
+		Session session = new Session();
+		if(f.getSession() != null){
+			session = f.getSession();
+		}
+		points = session.getPoints();
+		
+		final DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 		ActionListener timerListener = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date date = new Date();
 				time = timeFormat.format(date);
 				checkTime = Integer.parseInt(time.substring(0, 2));
-				System.out.println(checkTime);
-				
+
 			}
 		};
 		Timer timer = new Timer(1000, timerListener);
-		
+
 		// to make sure it does not wait one second at the start
 		timer.setInitialDelay(0);
 		timer.start();
@@ -83,15 +88,14 @@ public class RoomService extends Layout {
 		JButton foodAndBeverages = new JButton("");
 		foodAndBeverages.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(checkTime < 12 && checkTime > 8){
-				Breakfast breakfast = new Breakfast(f);
-				f.getContentPane().removeAll();
-				f.getContentPane().add(breakfast);
-				f.repaint();
-				f.revalidate();
-				f.setVisible(true);
-				}
-				else{
+				if (checkTime < 12 && checkTime > 8) {
+					Breakfast breakfast = new Breakfast(f);
+					f.getContentPane().removeAll();
+					f.getContentPane().add(breakfast);
+					f.repaint();
+					f.revalidate();
+					f.setVisible(true);
+				} else {
 					Meals meals = new Meals(f);
 					f.getContentPane().removeAll();
 					f.getContentPane().add(meals);
@@ -166,7 +170,12 @@ public class RoomService extends Layout {
 			}
 		});
 		add(logo);
-
+		
+		JLabel pointLb = new JLabel("Reward Points: " + points);
+		pointLb.setForeground(Color.RED);
+		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
+		pointLb.setBounds(0, 0, 200, 38);
+		add(pointLb);
 		super.setLayout();
 	}
 }

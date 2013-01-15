@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import staywell.entities.Session;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 import javax.swing.SwingConstants;
@@ -34,6 +35,13 @@ public class Feedback extends Layout {
 	 */
 	public Feedback(MainFrame frame) {
 		f = frame;
+		
+		Session session = new Session();
+		if(f.getSession() != null){
+			session = f.getSession();
+		}
+		points = session.getPoints();
+		
 		setBounds(new Rectangle(0,0,1024,768));
 		setLayout(null);
 		
@@ -123,6 +131,11 @@ public class Feedback extends Layout {
 		label.setBounds(482, 592, 60, 28);
 		add(label);
 		
+		JLabel pointLb = new JLabel("Reward Points: " + points);
+		pointLb.setForeground(Color.RED);
+		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
+		pointLb.setBounds(0, 0, 200, 38);
+		add(pointLb);
 		super.setLayout();
 	}
 }
