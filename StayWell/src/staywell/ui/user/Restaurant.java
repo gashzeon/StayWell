@@ -210,8 +210,7 @@ class MyTableModel extends AbstractTableModel {
 			if (o != null) return o.getClass();
 			else return String.class;
 		    
-		}  
-				
+		}  		
 		};
 		
 		table.setRowHeight(106);

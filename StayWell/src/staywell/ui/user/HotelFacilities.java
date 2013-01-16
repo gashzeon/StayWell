@@ -205,8 +205,7 @@ public class HotelFacilities extends Layout {
 					if (o != null) return o.getClass();
 					else return String.class;
 				    
-				}  
-						
+				}  	
 				};
 				
 				table.setRowHeight(106);
