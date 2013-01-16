@@ -7,16 +7,22 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 import staywell.entities.Session;
 import staywell.ui.Layout;
@@ -24,8 +30,7 @@ import staywell.ui.MainFrame;
 
 public class Ballroom extends Layout {
 	private boolean DEBUG = false;
-	private JTable table_1;
-	private JTable BallRoomTable;
+	private JTable table;
 
 	/**
 	 * Create the panel.
@@ -51,229 +56,30 @@ public class Ballroom extends Layout {
 		lblBallRoom.setBounds(465, 11, 134, 40);
 		add(lblBallRoom);
 
-		BallRoomTable = new JTable();
-		BallRoomTable
-				.setPreferredScrollableViewportSize(new Dimension(450, 450));
-		BallRoomTable.setRowSelectionAllowed(false);
-		BallRoomTable.setRowHeight(100);
-		BallRoomTable.setEnabled(false);
-		BallRoomTable.setFont(new Font("Candara", Font.BOLD, 17));
-		BallRoomTable.setBackground(Color.WHITE);
-		BallRoomTable.setModel(new DefaultTableModel(new Object[][] {
-				{ "Parties (30-35 Pax)", null, null, null },
-				{ "Weddings (70 - 80 Pax)", null, null, null },
-				{ "Events (80 - 100 Pax)", null, null, null },
-				{ "Buffets (30 - 40 Pax)", null, null, null }, }, new String[] {
-				"-Item-", "Select", "Time Slot", "Date" }));
-		BallRoomTable.getColumnModel().getColumn(0).setPreferredWidth(151);
-		BallRoomTable.getColumnModel().getColumn(2).setPreferredWidth(168);
-		BallRoomTable.getColumnModel().getColumn(3).setPreferredWidth(230);
 
-		JCheckBox chckbxNewCheckBox = new JCheckBox("");
-		chckbxNewCheckBox.setOpaque(false);
-		chckbxNewCheckBox.setActionCommand("");
-		chckbxNewCheckBox.setBounds(378, 170, 21, 23);
-		add(chckbxNewCheckBox);
-
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("");
-		chckbxNewCheckBox_1.setOpaque(false);
-		chckbxNewCheckBox_1.setBounds(378, 263, 21, 23);
-		add(chckbxNewCheckBox_1);
-
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("");
-		chckbxNewCheckBox_2.setOpaque(false);
-		chckbxNewCheckBox_2.setBounds(378, 366, 21, 23);
-		add(chckbxNewCheckBox_2);
-
-		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setOpaque(false);
-		checkBox.setBounds(378, 461, 21, 23);
-		add(checkBox);
-
-		JLabel lblDate_1 = new JLabel("Date");
-		lblDate_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDate_1.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		lblDate_1.setBounds(705, 135, 46, 14);
-		add(lblDate_1);
-
-		JLabel lblMonth = new JLabel("Month");
-		lblMonth.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		lblMonth.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMonth.setBounds(808, 135, 46, 14);
-		add(lblMonth);
-
-		JComboBox comboBox_5 = new JComboBox();
-		comboBox_5.setModel(new DefaultComboBoxModel(new String[] { "1", "2",
-				"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",
-				"14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
-				"24", "25", "26", "27", "28", "29", "30", "31" }));
-		comboBox_5.setBounds(707, 173, 45, 25);
-		add(comboBox_5);
-
-		JComboBox comboBox_6 = new JComboBox();
-		comboBox_6.setModel(new DefaultComboBoxModel(new String[] { "1", "2",
-				"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",
-				"14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
-				"24", "25", "26", "27", "28", "29", "30", "31" }));
-		comboBox_6.setBounds(707, 263, 45, 25);
-		add(comboBox_6);
-
-		JComboBox comboBox_7 = new JComboBox();
-		comboBox_7.setModel(new DefaultComboBoxModel(new String[] { "1", "2",
-				"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",
-				"14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
-				"24", "25", "26", "27", "28", "29", "30", "31" }));
-		comboBox_7.setBounds(707, 366, 45, 25);
-		add(comboBox_7);
-
-		JComboBox comboBox_8 = new JComboBox();
-		comboBox_8.setModel(new DefaultComboBoxModel(new String[] { "1", "2",
-				"3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",
-				"14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
-				"24", "25", "26", "27", "28", "29", "30", "31" }));
-		comboBox_8.setBounds(707, 461, 45, 25);
-		add(comboBox_8);
-
-		JComboBox comboBox_10 = new JComboBox();
-		comboBox_10.setModel(new DefaultComboBoxModel(new String[] { "1", "2",
-				"3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-		comboBox_10.setBounds(810, 173, 45, 25);
-		add(comboBox_10);
-
-		JComboBox comboBox_11 = new JComboBox();
-		comboBox_11.setModel(new DefaultComboBoxModel(new String[] { "1", "2",
-				"3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-		comboBox_11.setBounds(810, 263, 45, 25);
-		add(comboBox_11);
-
-		JComboBox comboBox_12 = new JComboBox();
-		comboBox_12.setModel(new DefaultComboBoxModel(new String[] { "1", "2",
-				"3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-		comboBox_12.setBounds(810, 366, 45, 25);
-		add(comboBox_12);
-
-		JComboBox comboBox_13 = new JComboBox();
-		comboBox_13.setModel(new DefaultComboBoxModel(new String[] { "1", "2",
-				"3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-		comboBox_13.setBounds(810, 461, 45, 25);
-		add(comboBox_13);
-
-		JLabel lblStart = new JLabel("Start");
-		lblStart.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblStart.setHorizontalAlignment(SwingConstants.CENTER);
-		lblStart.setBounds(470, 136, 46, 14);
-		add(lblStart);
-
-		JLabel lblEnd = new JLabel("End");
-		lblEnd.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblEnd.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnd.setBounds(558, 136, 46, 14);
-		add(lblEnd);
-
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] { "9am",
-				"10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm",
-				"6pm", "7pm", "8pm" }));
-		comboBox_2.setBounds(465, 366, 60, 25);
-		add(comboBox_2);
-
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] { "9am",
-				"10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm",
-				"6pm", "7pm", "8pm" }));
-		comboBox_3.setBounds(465, 460, 60, 25);
-		add(comboBox_3);
-
-		JComboBox comboBox_15 = new JComboBox();
-		comboBox_15.setModel(new DefaultComboBoxModel(new String[] { "11am",
-				"12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm",
-				"9pm", "10pm", "11pm" }));
-		comboBox_15.setBounds(553, 170, 60, 25);
-		add(comboBox_15);
-
-		JComboBox comboBox_16 = new JComboBox();
-		comboBox_16.setModel(new DefaultComboBoxModel(new String[] { "11am",
-				"12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm",
-				"9pm", "10pm", "11pm" }));
-		comboBox_16.setBounds(553, 263, 60, 25);
-		add(comboBox_16);
-
-		JComboBox comboBox_17 = new JComboBox();
-		comboBox_17.setModel(new DefaultComboBoxModel(new String[] { "11am",
-				"12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm",
-				"9pm", "10pm", "11pm" }));
-		comboBox_17.setBounds(553, 366, 60, 25);
-		add(comboBox_17);
-
-		JComboBox comboBox_18 = new JComboBox();
-		comboBox_18.setModel(new DefaultComboBoxModel(new String[] { "11am",
-				"12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm",
-				"9pm", "10pm", "11pm" }));
-		comboBox_18.setBounds(553, 460, 60, 25);
-		add(comboBox_18);
-
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "9am",
-				"10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm",
-				"6pm", "7pm", "8pm" }));
-		comboBox.setBounds(465, 170, 60, 25);
-		add(comboBox);
-
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "9am",
-				"10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm",
-				"6pm", "7pm", "8pm" }));
-		comboBox_1.setBounds(465, 263, 60, 25);
-		add(comboBox_1);
-		BallRoomTable.setCellSelectionEnabled(true);
-		BallRoomTable.setBounds(150, 125, 757, 400);
-		add(BallRoomTable);
-
-		JButton button = new JButton("");
-		button.addActionListener(new ActionListener() {
+		JButton Confirm = new JButton("");
+		Confirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int n = JOptionPane.showConfirmDialog(
+					    null,
+					    "Are You Sure?",
+					    "Confirmation",
+					    JOptionPane.YES_NO_OPTION);
 			}
 		});
-		button.setOpaque(false);
-		button.setIcon(new ImageIcon(Ballroom.class
+		Confirm.setOpaque(false);
+		Confirm.setIcon(new ImageIcon(Ballroom.class
 				.getResource("/staywell/image/cashing70X70.png")));
-		button.setBounds(497, 574, 70, 70);
-		add(button);
+		Confirm.setBounds(497, 574, 70, 70);
+		add(Confirm);
 
 		JLabel lblComfirm = new JLabel("Confirm");
 		lblComfirm.setForeground(Color.RED);
 		lblComfirm.setHorizontalAlignment(SwingConstants.CENTER);
 		lblComfirm.setFont(new Font("Candara", Font.BOLD, 20));
-		lblComfirm.setBounds(487, 655, 90, 25);
+		lblComfirm.setBounds(485, 625, 90, 25);
 		add(lblComfirm);
 
-		JLabel lblSelect = new JLabel("Select");
-		lblSelect.setForeground(Color.RED);
-		lblSelect.setFont(new Font("Candara", Font.BOLD, 20));
-		lblSelect.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSelect.setBounds(332, 93, 109, 25);
-		add(lblSelect);
-
-		JLabel lblTimeSlot = new JLabel("Time Slot");
-		lblTimeSlot.setForeground(Color.RED);
-		lblTimeSlot.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTimeSlot.setFont(new Font("Candara", Font.BOLD, 20));
-		lblTimeSlot.setBounds(441, 93, 202, 25);
-		add(lblTimeSlot);
-
-		JLabel lblDate = new JLabel("Date");
-		lblDate.setForeground(Color.RED);
-		lblDate.setFont(new Font("Candara", Font.BOLD, 20));
-		lblDate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDate.setBounds(642, 93, 265, 25);
-		add(lblDate);
-
-		JLabel lblTypes = new JLabel("Types");
-		lblTypes.setForeground(Color.RED);
-		lblTypes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTypes.setFont(new Font("Candara", Font.BOLD, 20));
-		lblTypes.setBounds(150, 93, 183, 25);
-		add(lblTypes);
 
 		JTextArea txtrPleaseChooseThe = new JTextArea();
 		txtrPleaseChooseThe.setForeground(Color.RED);
@@ -307,11 +113,292 @@ public class Ballroom extends Layout {
 		});
 		add(logo);
 		
+		JTextArea txtrPleaseChooseThe = new JTextArea();
+		txtrPleaseChooseThe.setForeground(Color.RED);
+		txtrPleaseChooseThe.setColumns(10);
+		txtrPleaseChooseThe.setEditable(false);
+		txtrPleaseChooseThe.setFont(new Font("Candara", Font.BOLD, 20));
+		txtrPleaseChooseThe.setLineWrap(true);
+		txtrPleaseChooseThe.setOpaque(false);
+		txtrPleaseChooseThe.setRows(10);
+		txtrPleaseChooseThe.setWrapStyleWord(true);
+		txtrPleaseChooseThe.setText("Available for booking from 0900hrs to 2300hrs. Max 5hrs of usage . Please select accordingly.");
+		txtrPleaseChooseThe.setBounds(115, 545, 230, 100);
+		add(txtrPleaseChooseThe);
+		
+class MyTableModel extends AbstractTableModel {
+			
+			private String[] columnNames = { "Select", 
+									  		 "Types",
+									  		 "Day",
+									  		 "Month",
+									  		 "Year",
+									  		 "Time Start",
+									  	     "Time End"};
+		    private Object[][] data = {
+					{new Boolean(false), "Parties (30 - 35 Pax)", new Integer(01), new Integer(01), new Integer(2013), "0900","1100"},
+					{new Boolean(false), "Weddings (70 - 80 Pax)", new Integer(01), new Integer(01), new Integer(2013), "0900", "1100"},
+					{new Boolean(false), "Events (80 - 100 Pax)", new Integer(01), new Integer(01), new Integer(2013), "0900", "1100"},
+					{new Boolean(false), "Buffets (30 - 40 Pax)", new Integer(01), new Integer(01), new Integer(2013), "0900", "1100"},
+					};
+			
+			public int getColumnCount(){
+				return columnNames.length;
+			}
+			
+			public int getRowCount(){
+				return data.length;
+			}
+			
+			public String getColumnName(int col){
+				return columnNames[col];
+			}
+			
+			public Object getValueAt(int row, int col){
+				return data[row][col];
+			}
+			
+		
+			public boolean isCellEditable(int row, int col) {
+	            
+	            if (col != 1) {
+	                return true;
+	            } else {
+	                return false;
+	            }
+			}
+		
+			
+			public void setValueAt(Object value, int row, int col) {
+	            if (DEBUG) {
+	                System.out.println("Setting value at " + row + "," + col
+	                                   + " to " + value
+	                                   + " (an instance of "
+	                                   + value.getClass() + ")");
+	            }
+	            
+	            data[row][col] = value;
+	            fireTableCellUpdated(row, col);
+
+	            if (DEBUG) {
+	                System.out.println("New value of data:");
+	                printDebugData();
+	            }
+			}
+			
+			private void printDebugData() {
+	            int numRows = getRowCount();
+	            int numCols = getColumnCount();
+
+	            for (int i=0; i < numRows; i++) {
+	                System.out.print("    row " + i + ":");
+	                for (int j=0; j < numCols; j++) {
+	                    System.out.print("  " + data[i][j]);
+	                }
+	                System.out.println();
+	            }
+	            System.out.println("--------------------------");
+	        }
+		}
+		JTable table = new JTable(new MyTableModel())
+		{    
+		public Class getColumnClass(int column)      
+		{ 
+			if (column == 0) return Boolean.class;
+			Object o = getValueAt(0, column);
+			if (o != null) return o.getClass();
+			else return String.class;
+		} 
+
+	};
+	
+		table.setRowHeight(106);
+		table.getColumnModel().getColumn(1).setPreferredWidth(180);
+		table.getColumnModel().getColumn(2).setPreferredWidth(110);
+		table.getColumnModel().getColumn(3).setPreferredWidth(110);
+		table.getColumnModel().getColumn(4).setPreferredWidth(110);
+		table.getColumnModel().getColumn(5).setPreferredWidth(130);
+		table.getColumnModel().getColumn(6).setPreferredWidth(130);
+		table.setRowSelectionAllowed(false);
+		table.setFont(new Font("Candara", Font.BOLD, 17));
+		
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(115, 75, 800, 450);
+		add(scrollPane);
+		
+		JTextArea txtrFillInThe = new JTextArea();
+		txtrFillInThe.setEditable(false);
+		txtrFillInThe.setForeground(Color.RED);
+		txtrFillInThe.setOpaque(false);
+		txtrFillInThe.setText("Time is in 24hrs format and interval of 30 minutes. Thank You." );
+		txtrFillInThe.setWrapStyleWord(true);
+		txtrFillInThe.setRows(10);
+		txtrFillInThe.setLineWrap(true);
+		txtrFillInThe.setFont(new Font("Candara", Font.BOLD, 17));
+		txtrFillInThe.setBounds(665, 545, 250, 50);
+		add(txtrFillInThe);
+		
 		JLabel pointLb = new JLabel("Reward Points: " + points);
 		pointLb.setForeground(Color.RED);
 		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
 		pointLb.setBounds(0, 0, 200, 38);
 		add(pointLb);
 		super.setLayout();
+		
+		setUpDayColumn(table, table.getColumnModel().getColumn(2));
+		setUpMonthColumn(table, table.getColumnModel().getColumn(3));
+		setUpYearColumn(table, table.getColumnModel().getColumn(4));
+		setUpTimeStartColumn(table, table.getColumnModel().getColumn(5));
+		setUpTimeEndColumn(table, table.getColumnModel().getColumn(6));
+	}
+	
+	public void setUpDayColumn(JTable table, TableColumn DayColumn) {
+		JComboBox comboBox = new JComboBox();
+        comboBox.addItem("01");
+        comboBox.addItem("02");
+        comboBox.addItem("03");
+        comboBox.addItem("04");
+        comboBox.addItem("05");
+        comboBox.addItem("07");
+        comboBox.addItem("08");
+        comboBox.addItem("09");
+        comboBox.addItem("10");
+        comboBox.addItem("11");
+        comboBox.addItem("12");
+        comboBox.addItem("13");
+        comboBox.addItem("14");
+        comboBox.addItem("15");
+        comboBox.addItem("16");
+        comboBox.addItem("17");
+        comboBox.addItem("18");
+        comboBox.addItem("19");
+        comboBox.addItem("20");
+        comboBox.addItem("21");
+        comboBox.addItem("22");
+        comboBox.addItem("23");
+        comboBox.addItem("24");
+        comboBox.addItem("25");
+        comboBox.addItem("26");
+        comboBox.addItem("27");
+        comboBox.addItem("28");
+        comboBox.addItem("29");
+        comboBox.addItem("30");
+        comboBox.addItem("31");
+        DayColumn.setCellEditor(new DefaultCellEditor(comboBox));
+        
+        DefaultTableCellRenderer renderer =
+                new DefaultTableCellRenderer();
+        renderer.setToolTipText("Click for combo box");
+        DayColumn.setCellRenderer(renderer);
+    
+	}
+	
+	public void setUpMonthColumn(JTable table, TableColumn MonthColumn) {
+		JComboBox comboBox = new JComboBox();
+        comboBox.addItem("01");
+        comboBox.addItem("02");
+        comboBox.addItem("03");
+        comboBox.addItem("04");
+        comboBox.addItem("05");
+        comboBox.addItem("07");
+        comboBox.addItem("08");
+        comboBox.addItem("09");
+        comboBox.addItem("10");
+        comboBox.addItem("11");
+        comboBox.addItem("12");
+        MonthColumn.setCellEditor(new DefaultCellEditor(comboBox));
+        
+        DefaultTableCellRenderer renderer =
+                new DefaultTableCellRenderer();
+        renderer.setToolTipText("Click for combo box");
+        MonthColumn.setCellRenderer(renderer);
+	}
+	
+	public void setUpYearColumn(JTable table, TableColumn YearColumn) {
+		JComboBox comboBox = new JComboBox();
+        comboBox.addItem("2013");
+        comboBox.addItem("2014");
+        comboBox.addItem("2015");
+        comboBox.addItem("2016");
+        comboBox.addItem("2017");
+        comboBox.addItem("2018");
+        comboBox.addItem("2019");
+        comboBox.addItem("2020");
+      
+        YearColumn.setCellEditor(new DefaultCellEditor(comboBox));
+        
+        DefaultTableCellRenderer renderer =
+                new DefaultTableCellRenderer();
+        renderer.setToolTipText("Click for combo box");
+        YearColumn.setCellRenderer(renderer);
+    
+	}
+	
+	public void setUpTimeStartColumn(JTable table, TableColumn TimeStartColumn) {
+		JComboBox comboBox = new JComboBox();
+        comboBox.addItem("0900");
+        comboBox.addItem("0930");
+        comboBox.addItem("1000");
+        comboBox.addItem("1030");
+        comboBox.addItem("1100");
+        comboBox.addItem("1130");
+        comboBox.addItem("1200");
+        comboBox.addItem("1230");
+        comboBox.addItem("1300");
+        comboBox.addItem("1330");
+        comboBox.addItem("1400");
+        comboBox.addItem("1430");
+        comboBox.addItem("1500");
+        comboBox.addItem("1530");
+        comboBox.addItem("1600");
+        comboBox.addItem("1630");
+        comboBox.addItem("1700");
+        comboBox.addItem("1730");
+        comboBox.addItem("1800");
+       
+        TimeStartColumn.setCellEditor(new DefaultCellEditor(comboBox));
+        
+        DefaultTableCellRenderer renderer =
+                new DefaultTableCellRenderer();
+        renderer.setToolTipText("Click for combo box");
+        TimeStartColumn.setCellRenderer(renderer);
+    
+	}
+	
+	public void setUpTimeEndColumn(JTable table, TableColumn TimeEndColumn) {
+		JComboBox comboBox = new JComboBox();
+        comboBox.addItem("1100");
+        comboBox.addItem("1130");
+        comboBox.addItem("1200");
+        comboBox.addItem("1230");
+        comboBox.addItem("1300");
+        comboBox.addItem("1330");
+        comboBox.addItem("1400");
+        comboBox.addItem("1430");
+        comboBox.addItem("1500");
+        comboBox.addItem("1530");
+        comboBox.addItem("1600");
+        comboBox.addItem("1630");
+        comboBox.addItem("1700");
+        comboBox.addItem("1730");
+        comboBox.addItem("1800");
+        comboBox.addItem("1830");
+        comboBox.addItem("1900");
+        comboBox.addItem("1930");
+        comboBox.addItem("2000");
+        comboBox.addItem("2030");
+        comboBox.addItem("2100");
+        comboBox.addItem("2130");
+        comboBox.addItem("2200");
+        comboBox.addItem("2230");
+        comboBox.addItem("2300");
+       
+        TimeEndColumn.setCellEditor(new DefaultCellEditor(comboBox));
+        
+        DefaultTableCellRenderer renderer =
+                new DefaultTableCellRenderer();
+        renderer.setToolTipText("Click for combo box");
+        TimeEndColumn.setCellRenderer(renderer);
+    
 	}
 }
