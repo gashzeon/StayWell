@@ -15,23 +15,28 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
+import staywell.ui.Layout;
+import staywell.ui.MainFrame;
+
 
 public class WeatherForecast extends Layout {
-	private JFrame f = null;
+	
 	/**
 	 * Create the panel.
 	 */
+	MainFrame f = new MainFrame();
+	JPanel panel = new JPanel();
 	public WeatherForecast() {
 		setBounds(new Rectangle(0, 0, 1024, 768));
-		setBorder(new EmptyBorder(0, 0, 0, 0));
 		setLayout(null);
 		
+		// create a label for time
 		final JLabel lblNewLabel_3 = new JLabel("New label");
 		lblNewLabel_3.setBounds(621, 11, 331, 52);
 		lblNewLabel_3.setFont(new Font("Candara", Font.BOLD, 20));
 		add(lblNewLabel_3);
 
-		final DateFormat timeFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
+		final DateFormat timeFormat = new SimpleDateFormat("EEE, d MMM yyyy H:mm:ss z");
 		ActionListener timerListener = new ActionListener()
 		{
 		public void actionPerformed(ActionEvent e)
@@ -65,7 +70,7 @@ public class WeatherForecast extends Layout {
 		super.setLayout();
 	}
 
-	public WeatherForecast(JFrame frame) {
+	public WeatherForecast(MainFrame frame) {
 		this();
 		f = frame;
 	}

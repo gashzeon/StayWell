@@ -60,10 +60,6 @@ public class BackgroundPanel extends javax.swing.JPanel
         java.awt.Graphics2D g2 = IMAGE.createGraphics();
 
         g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-//        g2.setRenderingHint(java.awt.RenderingHints.KEY_ALPHA_INTERPOLATION, java.awt.RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
-//        g2.setRenderingHint(java.awt.RenderingHints.KEY_COLOR_RENDERING, java.awt.RenderingHints.VALUE_COLOR_RENDER_QUALITY);
-//        g2.setRenderingHint(java.awt.RenderingHints.KEY_STROKE_CONTROL, java.awt.RenderingHints.VALUE_STROKE_PURE);
-
 
         java.awt.geom.Point2D BACKGROUND_START = new java.awt.geom.Point2D.Double(0, 0);
         java.awt.geom.Point2D BACKGROUND_STOP = new java.awt.geom.Point2D.Double(0, getHeight());
