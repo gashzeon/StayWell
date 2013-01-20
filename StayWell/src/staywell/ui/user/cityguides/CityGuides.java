@@ -1,5 +1,6 @@
 package staywell.ui.user.cityguides;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -31,7 +32,6 @@ import org.jdesktop.swingx.mapviewer.LocalResponseCache;
 import org.jdesktop.swingx.mapviewer.TileFactoryInfo;
 import org.jdesktop.swingx.mapviewer.WaypointPainter;
 
-import staywell.ui.Layout;
 import staywell.ui.user.Homepage;
 
 
@@ -52,7 +52,9 @@ public class CityGuides extends JFrame
 	private final static GeoPosition jurongBirdPark = new GeoPosition(1,  19, 0, 103, 42, 0);
 	private final static GeoPosition nightSafari= new GeoPosition(1,  24, 0, 103, 47, 0);
 	private final static GeoPosition singaporeZoologicalGarden = new GeoPosition(1,  24, 15, 103, 47, 27);
-	private final static GeoPosition offenbach = new GeoPosition(50,  6, 0, 8, 46, 0);
+	private final static GeoPosition theSingaporeCrocodilarium = new GeoPosition(1,  17, 44, 103, 53, 26);
+	private final static GeoPosition hawParVilla = new GeoPosition(50,  6, 0, 8, 46, 0);
+	private final static GeoPosition marinaBaySands = new GeoPosition(50,  6, 0, 8, 46, 0);
 	/**
 	 * @param args the program args (ignored)
 	 */
@@ -90,7 +92,9 @@ public class CityGuides extends JFrame
 				new MyWaypoint("Z", Color.CYAN, jurongBirdPark),
 				new MyWaypoint("Z", Color.CYAN, nightSafari),
 				new MyWaypoint("Z", Color.CYAN, singaporeZoologicalGarden),
-				new MyWaypoint("O", Color.GREEN, offenbach)));
+				new MyWaypoint("Z", Color.CYAN, theSingaporeCrocodilarium),
+				new MyWaypoint("R", Color.BLUE, marinaBaySands),
+				new MyWaypoint("T", Color.GREEN, hawParVilla)));
 
 		// Create a waypoint painter that takes all the waypoints
 		WaypointPainter<MyWaypoint> waypointPainter = new WaypointPainter<MyWaypoint>();
@@ -114,12 +118,14 @@ public class CityGuides extends JFrame
 		southPanel.setPreferredSize(new Dimension(10, 110));
 
 		contentPane.add(southPanel, BorderLayout.SOUTH);
-		JPanel northPanel = new JPanel();
+		final JPanel northPanel = new JPanel();
 		
 		final JLabel guideImage = new JLabel();
 		
-		guideImage.setPreferredSize(new Dimension(60,60));
+		guideImage.setPreferredSize(new Dimension(70,70));
 		northPanel.add(guideImage);
+		
+		
 		final JLabel infoPage = new JLabel();
 		infoPage.setPreferredSize(new Dimension(700, 100));
 		northPanel.add(infoPage);
@@ -128,22 +134,23 @@ public class CityGuides extends JFrame
 		
 		
 		JButton btnStayWell = new JButton("StayWell");
-		btnStayWell.setBounds(270, 5, 75, 23);
+		btnStayWell.setBounds(142, 5, 203, 23);
 		btnStayWell.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mapViewer.setZoom(4);
 				mapViewer.setAddressLocation(stayWell);
 				infoPage.setText("<html><h4>This is where you are now!</h4><p>StayWell Hotel</p></html>");
-				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("../../staywell/image/cityguides/zoo.png")));
+				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("/staywell/image/logo.png")));
 			}
 		});
 		JButton btnJurongBirdPark = new JButton("Jurong Bird Park");
-		btnJurongBirdPark.setBounds(355, 5, 111, 23);
+		btnJurongBirdPark.setBounds(142, 76, 203, 23);
 		btnJurongBirdPark.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mapViewer.setZoom(6);
 				mapViewer.setAddressLocation(jurongBirdPark);
 				infoPage.setText("test only");
+				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("/staywell/image/cityguides/JurongBirdPark.jpg")));
 			}
 		});
 		southPanel.setLayout(null);
@@ -151,27 +158,72 @@ public class CityGuides extends JFrame
 		southPanel.add(btnJurongBirdPark);
 		
 		JButton btnNightSafari = new JButton("Night Safari");
-		btnNightSafari.setBounds(471, 5, 89, 23);
+		btnNightSafari.setBounds(142, 39, 203, 23);
 		btnNightSafari.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mapViewer.setZoom(4);
 				mapViewer.setAddressLocation(nightSafari);
 				infoPage.setText("<html><h4>This is where you are now!</h4><p>Safari</p></html>");
-				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("../staywell/image/cityguides/zoo.png")));
+				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("/staywell/image/cityguides/NightSafari.jpg")));
 			}
 		});
 		southPanel.add(btnNightSafari);
 		
 		JButton btnSingaporeZoologicalGardens= new JButton("Singapore Zoological Gardens");
-		btnSingaporeZoologicalGardens.setBounds(565, 5, 173, 23);
+		btnSingaporeZoologicalGardens.setBounds(373, 5, 203, 23);
 		btnSingaporeZoologicalGardens.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mapViewer.setZoom(4);
 				mapViewer.setAddressLocation(singaporeZoologicalGarden);
 				infoPage.setText("<html><h4>This is where you are now!</h4><p>Safari</p></html>");
-				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("../../staywell/image/cityguides/zoo.png")));
+				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("/Staywell/image/cityguides/zoo.png")));
 			}
 		});
+		southPanel.add(btnSingaporeZoologicalGardens);
+		
+		JButton btnTheSingaporeCrocodilarium = new JButton("The Singapore Crocodilarium");
+		btnTheSingaporeCrocodilarium.setBounds(373, 76, 203, 23);
+		btnTheSingaporeCrocodilarium.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mapViewer.setZoom(4);
+				mapViewer.setAddressLocation(theSingaporeCrocodilarium);
+				infoPage.setText("<html><h4>This is where you are now!</h4><p>Safari</p></html>");
+				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("/staywell/image/cityguides/SINGAPORE CROCODILARIUM.jpg")));
+			}
+		});
+		
+		southPanel.add(btnTheSingaporeCrocodilarium);
+		
+		JButton btnHawParVilla = new JButton("Haw Par Villa");
+		btnHawParVilla.setBounds(601, 5, 203, 23);
+		btnHawParVilla.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mapViewer.setZoom(4);
+				mapViewer.setAddressLocation(hawParVilla);
+				infoPage.setText("<html><h4>This is where you are now!</h4><p>Safari</p></html>");
+				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("/staywell/image/cityguides/SINGAPORE CROCODILARIUM.jpg")));
+			}
+		});
+		
+		southPanel.add(btnHawParVilla);
+		
+		JButton btnMarinaBaySands = new JButton("Marina Bay Sands");
+		btnMarinaBaySands.setBounds(373, 39, 203, 23);
+		btnMarinaBaySands.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mapViewer.setZoom(4);
+				mapViewer.setAddressLocation(marinaBaySands);
+				infoPage.setText("<html><h4>This is where you are now!</h4><p>Safari</p></html>");
+				guideImage.setIcon(new ImageIcon(CityGuides.class.getResource("/staywell/image/cityguides/SINGAPORE CROCODILARIUM.jpg")));
+			}
+		});
+		
+		southPanel.add(btnMarinaBaySands);
+		
+		
+		
+		
+		
 		
 		JButton logo = new JButton();
 		logo.setBounds(0, 5, 110, 110);
@@ -187,7 +239,8 @@ public class CityGuides extends JFrame
 		});
 		
 		southPanel.add(logo);
-		southPanel.add(btnSingaporeZoologicalGardens);
+		
+		
 		
 		
 	}
@@ -206,5 +259,4 @@ public class CityGuides extends JFrame
 		});
 		
 	}
-
 }
