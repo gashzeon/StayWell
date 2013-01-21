@@ -27,7 +27,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 
-import staywell.entities.Session;
+import staywell.entities.SessionEntities;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -43,7 +43,7 @@ public class HotelFacilities extends Layout {
 	public HotelFacilities(MainFrame frame) {
 		f = frame;
 		
-		Session session = new Session();
+		SessionEntities session = new SessionEntities();
 		if(f.getSession() != null){
 			session = f.getSession();
 		}

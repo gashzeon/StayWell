@@ -18,9 +18,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import staywell.entities.Guest;
-import staywell.entities.Session;
-import staywell.entities.User;
+import staywell.entities.GuestEntities;
+import staywell.entities.SessionEntities;
+import staywell.entities.UserEntities;
 import staywell.entities.dao.LoginDAO;
 import staywell.ui.Layout;
 
@@ -89,16 +89,16 @@ public class Login extends Layout {
 					validateLb.setText("Please Enter Your Password");
 				}
 				else{
-					User user = new User();
+					UserEntities user = new UserEntities();
 					user.setPassword(passwordField.getText());
 					user.setUserName(textField.getText());
-					User user2 = new User();
+					UserEntities user2 = new UserEntities();
 					user2=LoginDAO.Login(user);
-					Guest guest = new Guest();
+					GuestEntities guest = new GuestEntities();
 					guest.setEmail(user2.getEmail());
-					Guest guest2 = new Guest();
+					GuestEntities guest2 = new GuestEntities();
 					guest2 = LoginDAO.Login(guest);
-					Session session = new Session();
+					SessionEntities session = new SessionEntities();
 					session.setName(user2.getFirstName() + " " + user2.getLastName());
 					session.setEmail(guest2.getEmail());
 					session.setMembership(guest2.getMembership());

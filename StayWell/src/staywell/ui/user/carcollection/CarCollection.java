@@ -20,7 +20,7 @@ import javax.swing.Timer;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.EmptyBorder;
 
-import staywell.entities.Session;
+import staywell.entities.SessionEntities;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 public class CarCollection extends Layout {
@@ -34,7 +34,7 @@ public class CarCollection extends Layout {
 	public CarCollection(MainFrame frame) {
 		f = frame;
 		
-		Session session = new Session();
+		SessionEntities session = new SessionEntities();
 		if(f.getSession() != null){
 			session = f.getSession();
 		}

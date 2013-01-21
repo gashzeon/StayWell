@@ -38,7 +38,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import staywell.entities.Session;
+import staywell.entities.SessionEntities;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -54,7 +54,7 @@ public class Restaurant extends Layout {
 	public Restaurant(MainFrame frame) {
 		f = frame;
 		
-		Session session = new Session();
+		SessionEntities session = new SessionEntities();
 		if(f.getSession() != null){
 			session = f.getSession();
 		}

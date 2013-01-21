@@ -29,31 +29,11 @@ public class WeatherForecast extends Layout {
 	 */
 	MainFrame f = new MainFrame();
 	JPanel panel = new JPanel();
-	public WeatherForecast() {
+	public WeatherForecast(MainFrame frame) {
+		f = frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
-		// create a label for time
-		final JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setBounds(621, 11, 331, 52);
-		lblNewLabel_3.setFont(new Font("Candara", Font.BOLD, 20));
-		add(lblNewLabel_3);
-
-		final DateFormat timeFormat = new SimpleDateFormat("EEE, d MMM yyyy H:mm:ss z");
-		ActionListener timerListener = new ActionListener()
-		{
-		public void actionPerformed(ActionEvent e)
-		{
-		Date date = new Date();
-		String time = timeFormat.format(date);
-		lblNewLabel_3.setText(time);
-		}
-		};
-		Timer timer = new Timer(1000, timerListener);
-		
-		// to make sure it does not wait one second at the start
-				timer.setInitialDelay(0);
-				timer.start();
 		
 		JLabel Title = new JLabel("Weather Forecast");
 		Title.setBounds(0, 74, 1024, 86);
@@ -69,13 +49,6 @@ public class WeatherForecast extends Layout {
 		JLabel lblpleaseWaitA = new JLabel("*Please wait a few seconds for the weather to load*");
 		lblpleaseWaitA.setBounds(390, 590, 311, 14);
 		add(lblpleaseWaitA);
-
-		super.setLayout();
-	}
-
-	public WeatherForecast(MainFrame frame) {
-		this();
-		f = frame;
 		
 		JButton logo = new JButton();
 		logo.setIcon(new ImageIcon(Homepage.class
@@ -95,5 +68,7 @@ public class WeatherForecast extends Layout {
 			}
 		});
 		add(logo);
+
+		super.setLayout();
 	}
 }

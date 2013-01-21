@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
-import staywell.entities.Session;
+import staywell.entities.SessionEntities;
 import staywell.ui.user.Homepage;
 
 public class Layout extends JPanel {

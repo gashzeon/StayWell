@@ -16,10 +16,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-import staywell.entities.Session;
+import staywell.entities.SessionEntities;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
+import staywell.ui.user.carcollection.CarCollection;
 import staywell.ui.user.cityguides.CityGuides;
+import staywell.ui.user.weatherforecast.Weather;
+import staywell.ui.user.weatherforecast.WeatherForecast;
 
 import javax.swing.JTextField;
 
@@ -34,7 +37,7 @@ public class Homepage extends Layout {
 	public Homepage(MainFrame frame) {
 		f = frame;
 		
-		Session session = new Session();
+		SessionEntities session = new SessionEntities();
 		if(f.getSession() != null){
 			session = f.getSession();
 		}
@@ -111,6 +114,16 @@ public class Homepage extends Layout {
 		add(checkOutLb);
 		
 		JButton valetParking = new JButton("");
+		valetParking.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CarCollection carCollection = new CarCollection(f);
+				f.getContentPane().removeAll();
+				f.getContentPane().add(carCollection);
+				f.repaint();
+				f.revalidate();
+				f.setVisible(true);
+			}
+		});
 		valetParking.setBounds(141, 394, 150, 150);
 		valetParking.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/ValetParking.png")));
 		valetParking.setBorder(null);
@@ -133,6 +146,16 @@ public class Homepage extends Layout {
 		add(roomLb);
 		
 		JButton weatherForcast = new JButton("");
+		weatherForcast.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				WeatherForecast weatherForecast = new WeatherForecast(f);
+				f.getContentPane().removeAll();
+				f.getContentPane().add(weatherForecast);
+				f.repaint();
+				f.revalidate();
+				f.setVisible(true);
+			}
+		});
 		weatherForcast.setBounds(723, 152, 150, 150);
 		weatherForcast.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/weatherforcast.png")));
 		weatherForcast.setBorder(null);

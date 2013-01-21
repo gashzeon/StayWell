@@ -17,7 +17,7 @@ public class LoginDAO {
 	static PreparedStatement pstmt1 = null;
 	public static boolean successLogin = false;
 
-	public static User Login(User user) {
+	public static UserEntities Login(UserEntities user) {
 		String userName = user.getUserName();
 		Statement stmt = null;
 		
@@ -48,7 +48,7 @@ public class LoginDAO {
                 String gender = rs.getString("gender");
                 String nationality = rs.getString("nationality");
                 
-                user = new User();
+                user = new UserEntities();
                 user.setUserName(userName1);
                 user.setPassword(password);
                 user.setFirstName(firstName);
@@ -69,7 +69,7 @@ public class LoginDAO {
 		return  user;
 	}
 
-	public static Guest Login(Guest guest) {
+	public static GuestEntities Login(GuestEntities guest) {
 		String email = guest.getEmail();
 		Statement stmt = null;
 		
@@ -96,7 +96,7 @@ public class LoginDAO {
                 int roomNo = rs.getInt("roomNumber");
                 double cost = rs.getDouble("cost");
                 
-                guest = new Guest();
+                guest = new GuestEntities();
                 guest.setEmail(email1);
                 guest.setMembership(membership);
                 guest.setPoint(points);

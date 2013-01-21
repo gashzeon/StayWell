@@ -30,7 +30,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTable;
 
-import staywell.entities.Session;
+import staywell.entities.SessionEntities;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -50,7 +50,7 @@ public class Reservation extends Layout {
 	public Reservation(MainFrame frame) {
 		f = frame;
 		
-		Session session = new Session();
+		SessionEntities session = new SessionEntities();
 		if(f.getSession() != null){
 			session = f.getSession();
 		}

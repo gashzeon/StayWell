@@ -14,7 +14,7 @@ public class RegisterDAO {
 	static ResultSet rs1 = null;
 	static PreparedStatement pstmt1 = null;
 
-	public static User userRegister(User user) {
+	public static UserEntities userRegister(UserEntities user) {
 		
 		Statement stmt = null;
 		
@@ -75,7 +75,7 @@ public class RegisterDAO {
 		return user;
 
 	}
-	public static Guest guestRegister(Guest guest) {
+	public static GuestEntities guestRegister(GuestEntities guest) {
 		
 		Statement stmt = null;
 		

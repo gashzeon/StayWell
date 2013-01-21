@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
 
-import staywell.entities.Session;
+import staywell.entities.SessionEntities;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
@@ -29,7 +29,7 @@ public class Taxi extends Layout {
 	public Taxi(MainFrame frame) {
 		f = frame;
 		
-		Session session = new Session();
+		SessionEntities session = new SessionEntities();
 		if(f.getSession() != null){
 			session = f.getSession();
 		}

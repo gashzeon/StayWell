@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 
-import staywell.entities.Session;
+import staywell.entities.SessionEntities;
 import staywell.ui.user.*;
 
 public class MainFrame extends JFrame {
@@ -32,14 +32,14 @@ public class MainFrame extends JFrame {
 	private static Restaurant restaurant;
 	private static PointRedemption pointRedemption;
 	private static FacilitiesReservation facilitiesReservation;
-	public static Session session;
+	public static SessionEntities session;
 	/**
 	 * Launch the application.
 	 */
-	public static void setSession(Session s){
+	public static void setSession(SessionEntities s){
 		session = s;
 	}
-	public Session getSession(){
+	public SessionEntities getSession(){
 		return session;
 	}
 	public Ballroom getBallroom(){
