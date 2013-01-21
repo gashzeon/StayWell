@@ -8,6 +8,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
+import staywell.ui.user.Homepage;
 
 
 public class WeatherForecast extends Layout {
@@ -73,5 +76,24 @@ public class WeatherForecast extends Layout {
 	public WeatherForecast(MainFrame frame) {
 		this();
 		f = frame;
+		
+		JButton logo = new JButton();
+		logo.setIcon(new ImageIcon(Homepage.class
+				.getResource("/Staywell/image/Logo.png")));
+		logo.setBounds(2, 641, 110, 110);
+		logo.setBorder(null);
+		logo.setBorderPainted(false);
+		logo.setContentAreaFilled(false);
+		logo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Homepage homepage = new Homepage(f);
+				f.getContentPane().removeAll();
+				f.getContentPane().add(homepage);
+				f.repaint();
+				f.revalidate();
+				f.setVisible(true);
+			}
+		});
+		add(logo);
 	}
 }

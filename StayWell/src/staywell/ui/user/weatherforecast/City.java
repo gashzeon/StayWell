@@ -9,7 +9,7 @@ package staywell.ui.user.weatherforecast;
 	    // -11
 	    Magadan("Magadan", "Russia", -39600000),
 	    Sakhalin("Sachalin", "Russia", -39600000),
-	    SolomonIslands("Solomon islands", "Solomon islands", -39600000),
+	    SolomonIslands("Solomon islands", "Solomon islands", -3960000),
 	    Malekula("Malekula", "Malampa", -39600000),
 	    // -10
 	    Vladivostok("Vladivostok", "Russia", -36000000),
@@ -119,7 +119,6 @@ package staywell.ui.user.weatherforecast;
 	    Santiago("Santiago", "Chile", 14400000),
 	    LaPaz("La Paz", "Bolivia", 14400000),
 	    // +5
-	    //NewYork("New York", "United States of America", 18000000),
 	    NewYork("New York", "NY", 18000000),
 	    Toronto("Toronto", "Canada", 18000000),
 	    Bogota("Bogota", "Colombia", 18000000),
