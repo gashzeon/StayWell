@@ -80,20 +80,6 @@ public class Ballroom extends Layout {
 		lblComfirm.setBounds(485, 625, 90, 25);
 		add(lblComfirm);
 
-
-		JTextArea txtrPleaseChooseThe = new JTextArea();
-		txtrPleaseChooseThe.setForeground(Color.RED);
-		txtrPleaseChooseThe.setColumns(10);
-		txtrPleaseChooseThe.setEditable(false);
-		txtrPleaseChooseThe.setFont(new Font("Candara", Font.BOLD, 20));
-		txtrPleaseChooseThe.setLineWrap(true);
-		txtrPleaseChooseThe.setOpaque(false);
-		txtrPleaseChooseThe.setRows(10);
-		txtrPleaseChooseThe.setWrapStyleWord(true);
-		txtrPleaseChooseThe.setText("Please select accordingly.");
-		txtrPleaseChooseThe.setBounds(149, 557, 230, 70);
-		add(txtrPleaseChooseThe);
-
 		JButton logo = new JButton();
 		logo.setIcon(new ImageIcon(Homepage.class
 				.getResource("/Staywell/image/Logo.png")));
