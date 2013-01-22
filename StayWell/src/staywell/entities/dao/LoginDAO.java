@@ -53,7 +53,7 @@ public class LoginDAO {
                 user.setPassword(password);
                 user.setFirstName(firstName);
                 user.setLastName(lastName);
-                user.setEmail(email);
+                user.setMembershipNo(email);
                 user.setAddress(address);
                 user.setDob(dob);
                 user.setGender(gender);
@@ -70,7 +70,7 @@ public class LoginDAO {
 	}
 
 	public static GuestEntities Login(GuestEntities guest) {
-		String email = guest.getEmail();
+		String email = guest.getMembershipNo();
 		Statement stmt = null;
 		
         String searchQuery = "select * from guest where email ='"
@@ -97,7 +97,7 @@ public class LoginDAO {
                 double cost = rs.getDouble("cost");
                 
                 guest = new GuestEntities();
-                guest.setEmail(email1);
+                guest.getMembershipNo(email1);
                 guest.setMembership(membership);
                 guest.setPoint(points);
                 guest.setRoomNumber(roomNo);

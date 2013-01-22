@@ -1,17 +1,17 @@
 package staywell.entities;
 
 public class GuestEntities {
-	private String email;
+	private String membershipNo;
 	private String membership;
 	private int point;
 	private int roomNumber;
 	private double cost;
 	
-	public String getEmail() {
-		return email;
+	public String getMembershipNo() {
+		return membershipNo;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void getMembershipNo(String membershipNo) {
+		this.membershipNo = membershipNo;
 	}
 	public String getMembership() {
 		return membership;

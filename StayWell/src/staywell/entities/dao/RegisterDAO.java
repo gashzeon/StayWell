@@ -24,14 +24,14 @@ public class RegisterDAO {
 			currentCon = DBConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
             // query for inserting into the table
-            String query = "insert into user(userName, password, firstName, lastName, email, gender, nationality, dob, address, occupation) values(?,?,?,?,?,?,?,?,?,?)";
+            String query = "insert into user(userName, password, firstName, lastName, membershipNo, gender, nationality, dob, address, occupation) values(?,?,?,?,?,?,?,?,?,?)";
             pstmt = currentCon.prepareStatement(query);
             // inserting values
             pstmt.setString(1,user.getUserName());
             pstmt.setString(2,user.getPassword());
             pstmt.setString(3, user.getFirstName());
             pstmt.setString(4, user.getLastName());
-            pstmt.setString(5, user.getEmail());  
+            pstmt.setString(5, user.getMembershipNo());  
             pstmt.setString(6, user.getGender());
             pstmt.setString(7, user.getNationality());
             pstmt.setString(8, user.getDob());
@@ -85,14 +85,14 @@ public class RegisterDAO {
 			currentCon = DBConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
             // query for inserting into the table
-            String query = "insert into guest(membership, points, roomNumber, cost, email) values(?, ?, ?, ?, ?)";
+            String query = "insert into guest(membership, points, roomNumber, cost, membershipNo) values(?, ?, ?, ?, ?)";
             pstmt = currentCon.prepareStatement(query);
             // inserting values
             pstmt.setString(1,guest.getMembership());
             pstmt.setInt(2,guest.getPoints());
             pstmt.setInt(3, guest.getRoomNumber());
             pstmt.setDouble(4, guest.getCost());
-            pstmt.setString(5, guest.getEmail());  
+            pstmt.setString(5, guest.getMembershipNo());  
             pstmt.executeUpdate();
             
 		} catch (Exception ex) {
@@ -131,6 +131,62 @@ public class RegisterDAO {
 		return guest;
 
 	}
-	
+public static boolean checkUser(UserEntities user) {
+		
+		Statement stmt = null;
+		String searchQuery = "Select * From user where username = '" + user.getUserName() + "'";
+		boolean ableToCreate = false;
+		// get the last member ID 
+		try {
+			
+			 currentCon = DBConnectionManager.getConnection();
+	            stmt = currentCon.createStatement();
+	            rs = stmt.executeQuery(searchQuery);
+	            boolean more = rs.next();
+
+	            if (!more){
+	            	ableToCreate = true;
+	            }
+
+	            else{
+	            	ableToCreate = false;
+	            }
+            
+		} catch (Exception ex) {
+
+			System.out.println("Registration failed: An Exception has occurred! "
+					+ ex);
+		}
+
+		// exception handling
+		finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (Exception e) {
+				}
+				rs = null;
+			}
+
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (Exception e) {
+				}
+				stmt = null;
+			}
+
+			if (currentCon != null) {
+				try {
+					currentCon.close();
+				} catch (Exception e) {
+				}
+
+				currentCon = null;
+			}
+		}
+		return ableToCreate;
+
+	}
 	
 }

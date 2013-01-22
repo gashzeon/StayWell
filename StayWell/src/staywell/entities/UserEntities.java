@@ -5,7 +5,7 @@ public class UserEntities {
 	private String password; 
 	private String firstName;
 	private String lastName;
-	private String email;
+	private String membershipNo;
 	private String nationality;
 	private String gender;
 	private String dob;
@@ -42,11 +42,11 @@ public class UserEntities {
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-	public String getEmail() {
-		return email;
+	public String getMembershipNo() {
+		return membershipNo;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMembershipNo(String membershipNo) {
+		this.membershipNo = membershipNo;
 	}
 	public String getUserName() {
 		return userName;

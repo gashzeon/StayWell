@@ -95,12 +95,12 @@ public class Login extends Layout {
 					UserEntities user2 = new UserEntities();
 					user2=LoginDAO.Login(user);
 					GuestEntities guest = new GuestEntities();
-					guest.setEmail(user2.getEmail());
+					guest.getMembershipNo(user2.getMembershipNo());
 					GuestEntities guest2 = new GuestEntities();
 					guest2 = LoginDAO.Login(guest);
 					SessionEntities session = new SessionEntities();
 					session.setName(user2.getFirstName() + " " + user2.getLastName());
-					session.setEmail(guest2.getEmail());
+					session.setEmail(guest2.getMembershipNo());
 					session.setMembership(guest2.getMembership());
 					session.setPoints(guest2.getPoints());
 					f.setSession(session);

@@ -10,7 +10,7 @@ public class Test {
 		user.setPassword("monkeysnsd");
 		user.setFirstName("Adrian");
 		user.setLastName("Foo");
-		user.setEmail("adrianfoo94@gmail.com");
+		user.setMembershipNo("adrianfoo94@gmail.com");
 		user.setAddress("asdasdasdas");
 		user.setGender("male");
 		user.setNationality("Singaporean");
@@ -19,7 +19,7 @@ public class Test {
 		RegisterDAO.userRegister(user);
 		
 		GuestEntities guest = new GuestEntities();
-		guest.setEmail("adrianfoo@gmail.com");
+		guest.getMembershipNo("adrianfoo@gmail.com");
 		guest.setMembership("gold");
 		guest.setPoint(1000);
 		guest.setRoomNumber(200);
