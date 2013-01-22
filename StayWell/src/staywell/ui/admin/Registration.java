@@ -36,11 +36,12 @@ import staywell.entities.SessionEntities;
 import staywell.entities.UserEntities;
 import staywell.entities.dao.LoginDAO;
 import staywell.entities.dao.RegisterDAO;
+import staywell.ui.Layout;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Registration extends Layout2 {
+public class Registration extends Layout {
 
 	private JPanel contentPane;
 	private JTextField userNameField;
@@ -261,10 +262,11 @@ public class Registration extends Layout2 {
 			user.setFirstName(txtFirstName.getText());
 			user.setLastName(txtLastName.getText());
 			user.setNationality(nationalityDDL.getSelectedItem().toString());
-			user.setGender(buttonGroup.getSelection().toString());
+			user.setGender(buttonGroup.getSelection());
 			user.setDob(dayDDL.getSelectedItem().toString() + "/" +monthDDL.getSelectedItem().toString()+"/"+ yearDDL.getSelectedItem().toString());
 			user.setAddress(txtAddress.getText());
 			user.setOccupation(occupationDDL.getSelectedItem().toString());
+			
 			user.setMembershipNo("000000002");
 			boolean isAbleToCreate = false;
 			isAbleToCreate = RegisterDAO.checkUser(user);
@@ -274,6 +276,7 @@ public class Registration extends Layout2 {
 			if(isAbleToCreate == true){
 				user2=RegisterDAO.userRegister(user);
 				guest.getMembershipNo(user2.getMembershipNo());
+				guest.setMembership(buttonGroup_1.getSelection().toString());
 				guest2 = RegisterDAO.guestRegister(guest);
 				AdminHomePage adminHomePage = f.getAdminHomePage();
 				f.getContentPane().removeAll();
@@ -302,7 +305,7 @@ public class Registration extends Layout2 {
 	DefaultListCellRenderer dlcr = new DefaultListCellRenderer();
 	dlcr.setHorizontalAlignment(DefaultListCellRenderer.LEFT);
 			
-	super.RealLayout();
+	super.setLayout();
 
 	}
 

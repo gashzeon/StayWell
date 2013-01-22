@@ -1,3 +1,4 @@
+
 package staywell.ui.admin;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -22,7 +23,7 @@ public class Frame2 extends JFrame {
 	private static AdminCarCollection2 adminCarCollection2;
 	private static AdminCheckIn adminCheckIn;
 	private static AdminCheckOut adminCheckOut;
-	private static AdminFeedBack_P2 adminFeedBack_P2;
+	
 	private static AdminFeedBack adminFeedBack;
 	private static AdminFoodNBeverage adminFoodNBeverage;
 	private static AdminHomePage adminHomePage;
@@ -58,11 +59,7 @@ public class Frame2 extends JFrame {
 	{
 		return adminCheckOut;
 	}
-	
-	public AdminFeedBack_P2 getAdminFeedBack_P2()
-	{
-		return adminFeedBack_P2;
-	}
+
 	
 	public AdminFeedBack getAdminFeedBack()
 	{
@@ -139,7 +136,7 @@ public class Frame2 extends JFrame {
 					adminCarCollection2 = new AdminCarCollection2(frame);
 					adminCheckIn = new AdminCheckIn(frame);
 					adminCheckOut = new AdminCheckOut(frame);
-					adminFeedBack_P2 = new AdminFeedBack_P2(frame);
+					
 					adminFeedBack = new AdminFeedBack(frame);
 					adminFoodNBeverage = new AdminFoodNBeverage(frame);
 					adminHomePage = new AdminHomePage(frame);

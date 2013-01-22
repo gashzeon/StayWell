@@ -17,11 +17,14 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import staywell.ui.Layout;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class AdminLogin extends Layout2 {
+public class AdminLogin extends Layout {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -91,7 +94,7 @@ public class AdminLogin extends Layout2 {
 		lblOnlyAuthorizedLogin.setBounds(372, 42, 279, 36);
 		add(lblOnlyAuthorizedLogin);
 		
-		super.RealLayout();
+		super.setLayout();
 	}
 	public AdminLogin(Frame2 frame)
 	{

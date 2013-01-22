@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+import staywell.ui.Layout;
 import staywell.ui.user.Homepage;
 
 import java.awt.Color;
@@ -23,7 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class CheckRegister extends Layout2 {
+public class CheckRegister extends Layout {
 
 	private JPanel contentPane;
 	private Frame2 f=null;
@@ -71,7 +72,7 @@ public class CheckRegister extends Layout2 {
 		CheckIN.setContentAreaFilled(false);
 		CheckIN.setBorderPainted(false);
 		CheckIN.setBorder(null);
-		CheckIN.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/CheckIN.png")));
+		CheckIN.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/CheckIN.png")));
 		CheckIN.setBounds(626, 304, 150, 150);
 		add(CheckIN);
 		
@@ -97,7 +98,7 @@ public class CheckRegister extends Layout2 {
 		Register_btn.setContentAreaFilled(false);
 		Register_btn.setBorderPainted(false);
 		Register_btn.setBorder(null);
-		Register_btn.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/Register_btn.png")));
+		Register_btn.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Register_btn.png")));
 		Register_btn.setBounds(238, 304, 150, 150);
 		add(Register_btn);
 		
@@ -109,7 +110,7 @@ public class CheckRegister extends Layout2 {
 		lblRegister.setBounds(238, 465, 150, 26);
 		add(lblRegister);
 		
-		super.RealLayout();
+		super.setLayout();
 	}
 	public CheckRegister(Frame2 frame)
 	{

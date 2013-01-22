@@ -17,6 +17,7 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
+import staywell.ui.Layout;
 import staywell.ui.user.Homepage;
 import staywell.ui.user.PointRedemption;
 
@@ -24,7 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class AdminRoomServices extends Layout2 {
+public class AdminRoomServices extends Layout {
 
 	private JPanel contentPane;
 	private Frame2 f =null;
@@ -82,7 +83,7 @@ public class AdminRoomServices extends Layout2 {
 		button.setContentAreaFilled(false);
 		button.setBorderPainted(false);
 		button.setBorder(null);
-		button.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/food&beverges.png")));
+		button.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/food&beverges.png")));
 		button.setBounds(557, 345, 150, 150);
 		add(button);
 		
@@ -100,7 +101,7 @@ public class AdminRoomServices extends Layout2 {
 		button_1.setOpaque(false);
 		button_1.setContentAreaFilled(false);
 		button_1.setBorderPainted(false);
-		button_1.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/laundryservices.png")));
+		button_1.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/laundryservices.png")));
 		button_1.setBorder(null);
 		button_1.setBounds(263, 345, 150, 150);
 		add(button_1);
@@ -121,7 +122,7 @@ public class AdminRoomServices extends Layout2 {
 		lblFoodBeverage.setBounds(557, 506, 150, 26);
 		add(lblFoodBeverage);
 
-		Logo.setIcon(new ImageIcon(PointRedemption.class.getResource("/Image1/Logo.png")));
+		Logo.setIcon(new ImageIcon(PointRedemption.class.getResource("/staywell/image/Logo.png")));
 		Logo.setBounds(-43, 635, 201, 123);
 		add(Logo);
 
@@ -130,11 +131,11 @@ public class AdminRoomServices extends Layout2 {
 		JLabel Background = new JLabel("");
 		Background.setOpaque(true);
 		Background.setIcon(new ImageIcon(PointRedemption.class
-				.getResource("/Image1/SWBG.png")));
+				.getResource("/staywell/image/SWBG.png")));
 		Background.setBounds(0, 0, 1356, 758);
 		add(Background);
 		
-		super.RealLayout();
+		super.setLayout();
 	}
 	public AdminRoomServices(Frame2 frame)
 	{

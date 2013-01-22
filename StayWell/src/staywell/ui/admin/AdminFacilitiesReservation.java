@@ -15,13 +15,15 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import staywell.ui.Layout;
+
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class AdminFacilitiesReservation extends Layout2 {
+public class AdminFacilitiesReservation extends Layout {
 
 	/**
 	 * 
@@ -72,7 +74,7 @@ public class AdminFacilitiesReservation extends Layout2 {
 		Taxi.setContentAreaFilled(false);
 		Taxi.setBorderPainted(false);
 		Taxi.setBorder(null);
-		Taxi.setIcon(new ImageIcon(AdminFacilitiesReservation.class.getResource("/Image1/ballroom.png")));
+		Taxi.setIcon(new ImageIcon(AdminFacilitiesReservation.class.getResource("/staywell/image/ballroom.png")));
 		Taxi.setBounds(723, 296, 150, 150);
 		add(Taxi);
 		
@@ -90,7 +92,7 @@ public class AdminFacilitiesReservation extends Layout2 {
 		
 		
 		
-		roomService.setIcon(new ImageIcon(AdminFacilitiesReservation.class.getResource("/Image1/hotelfacilities.png")));
+		roomService.setIcon(new ImageIcon(AdminFacilitiesReservation.class.getResource("/staywell/image/hotelfacilities.png")));
 		roomService.setBounds(141, 296, 150, 150);
 		roomService.setBorder(null);
 		roomService.setBorderPainted(false);
@@ -112,7 +114,7 @@ public class AdminFacilitiesReservation extends Layout2 {
 		facilities.setBorder(null);
 		facilities.setBorderPainted(false);
 		facilities.setContentAreaFilled(false);
-		facilities.setIcon(new ImageIcon(AdminFacilitiesReservation.class.getResource("/Image1/restaurant.png")));
+		facilities.setIcon(new ImageIcon(AdminFacilitiesReservation.class.getResource("/staywell/image/restaurant.png")));
 		add(facilities);
 		
 		JLabel AdminFacilitiesReservation = new JLabel("Restaurants");
@@ -142,7 +144,7 @@ public class AdminFacilitiesReservation extends Layout2 {
 		/* To set the logo*/
 		
 		
-		super.RealLayout();
+		super.setLayout();
 	}
 	public AdminFacilitiesReservation(Frame2 frame)
 	{

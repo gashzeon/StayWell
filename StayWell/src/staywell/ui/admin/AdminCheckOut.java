@@ -20,12 +20,15 @@ import java.awt.Font;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JPopupMenu;
+
+import staywell.ui.Layout;
+
 import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class AdminCheckOut extends Layout2 {
+public class AdminCheckOut extends Layout {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -133,7 +136,7 @@ public class AdminCheckOut extends Layout2 {
 		lblLaundryServices.setBounds(374, 42, 265, 36);
 		add(lblLaundryServices);
 			
-		super.RealLayout();	
+		super.setLayout();	
 		
 	}
 	public AdminCheckOut(Frame2 frame)

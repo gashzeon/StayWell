@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import staywell.ui.Layout;
 import staywell.ui.user.Homepage;
 
 import java.awt.Color;
@@ -23,7 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class AdminHomePage extends Layout2 {
+public class AdminHomePage extends Layout {
 
 	/**
 	 * 
@@ -58,7 +59,7 @@ public class AdminHomePage extends Layout2 {
 		});
 		button.setFont(new Font("Candara", Font.BOLD, 20));
 		button.setBorder(null);
-		button.setBounds(893, 11, 111, 25);
+		button.setBounds(10, 11, 111, 25);
 		add(button);
 		
 		JButton CheckIn = new JButton("");
@@ -75,7 +76,7 @@ public class AdminHomePage extends Layout2 {
 		CheckIn.setContentAreaFilled(false);
 		CheckIn.setBorderPainted(false);
 		CheckIn.setBorder(null);
-		CheckIn.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/CheckIN.png")));
+		CheckIn.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/CheckIN.png")));
 		CheckIn.setBounds(576, 305, 150, 150);
 		add(CheckIn);
 		
@@ -99,7 +100,7 @@ public class AdminHomePage extends Layout2 {
 			}
 		});
 		pointRedemption.setBounds(723, 534, 150, 150);
-		pointRedemption.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/PointRedemption.png")));
+		pointRedemption.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/PointRedemption.png")));
 		pointRedemption.setBorder(null);
 		pointRedemption.setBorderPainted(false);
 		pointRedemption.setContentAreaFilled(false);
@@ -119,7 +120,7 @@ public class AdminHomePage extends Layout2 {
 		Feedback.setContentAreaFilled(false);
 		Feedback.setBorderPainted(false);
 		Feedback.setBorder(null);
-		Feedback.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/Feedback2.png")));
+		Feedback.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/Feedback2.png")));
 		Feedback.setBounds(432, 534, 150, 150);
 		add(Feedback);
 		
@@ -135,7 +136,7 @@ public class AdminHomePage extends Layout2 {
 			}
 		});
 		valetParking.setBounds(141, 534, 150, 150);
-		valetParking.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/ValetParking.png")));
+		valetParking.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/ValetParking.png")));
 		valetParking.setBorder(null);
 		valetParking.setBorderPainted(false);
 		valetParking.setContentAreaFilled(false);
@@ -155,7 +156,7 @@ public class AdminHomePage extends Layout2 {
 		Taxi.setContentAreaFilled(false);
 		Taxi.setBorderPainted(false);
 		Taxi.setBorder(null);
-		Taxi.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/taxxi.png")));
+		Taxi.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/taxxi.png")));
 		Taxi.setBounds(723, 78, 150, 150);
 		add(Taxi);
 		
@@ -173,7 +174,7 @@ public class AdminHomePage extends Layout2 {
 		BillOut.setContentAreaFilled(false);
 		BillOut.setBorderPainted(false);
 		BillOut.setBorder(null);
-		BillOut.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/BillOut.png")));
+		BillOut.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/BillOut.png")));
 		BillOut.setBounds(282, 305, 150, 150);
 		add(BillOut);
 		
@@ -191,7 +192,7 @@ public class AdminHomePage extends Layout2 {
 		
 		
 		
-		roomService.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/roomservice.png")));
+		roomService.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/roomservice.png")));
 		roomService.setBounds(141, 78, 150, 150);
 		roomService.setBorder(null);
 		roomService.setBorderPainted(false);
@@ -213,7 +214,7 @@ public class AdminHomePage extends Layout2 {
 		facilities.setBorder(null);
 		facilities.setBorderPainted(false);
 		facilities.setContentAreaFilled(false);
-		facilities.setIcon(new ImageIcon(Homepage.class.getResource("/Image1/facreservation.png")));
+		facilities.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/facreservation.png")));
 		add(facilities);
 		
 		JLabel AdminFacilitiesReservation = new JLabel("Facilities Reservation");
@@ -277,7 +278,7 @@ public class AdminHomePage extends Layout2 {
 		/* To set the logo*/
 		
 		
-		super.RealLayout();
+		super.setLayout();
 	}
 	public AdminHomePage(Frame2 frame)
 	{

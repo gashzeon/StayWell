@@ -20,10 +20,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
+
+import staywell.ui.Layout;
+
 import java.awt.Color;
 
 
-public class AdminFeedBack extends Layout2 {
+public class AdminFeedBack extends Layout {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -69,34 +72,41 @@ public class AdminFeedBack extends Layout2 {
 		
 		table = new JTable();
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setFont(new Font("Candara", Font.PLAIN, 11));
+		table.setFont(new Font("Candara", Font.PLAIN, 20));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
+				{"Very Good", null, null, null, null},
+				{"Good", null, null, null, null},
+				{"Netural", null, null, null, null},
+				{"Bad", null, null, null, null},
+				{"Very Bad", null, null, null, null},
 			},
 			new String[] {
-				"Date / Time", "Name of Customer"
+				"", "Rating for HouseKeeping Services", "Rating for Hotel Facilities Services", "Rating for Staff Services", "Rating for HouseKeeping Services"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, false
+				false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
 		table.getColumnModel().getColumn(0).setResizable(false);
-		table.getColumnModel().getColumn(0).setPreferredWidth(120);
-		table.getColumnModel().getColumn(0).setMinWidth(120);
+		table.getColumnModel().getColumn(0).setPreferredWidth(10);
+		table.getColumnModel().getColumn(0).setMinWidth(10);
 		table.getColumnModel().getColumn(1).setResizable(false);
-		table.getColumnModel().getColumn(1).setPreferredWidth(100);
-		table.getColumnModel().getColumn(1).setMinWidth(100);
+		table.getColumnModel().getColumn(1).setPreferredWidth(120);
+		table.getColumnModel().getColumn(1).setMinWidth(120);
+		table.getColumnModel().getColumn(2).setResizable(false);
+		table.getColumnModel().getColumn(2).setPreferredWidth(120);
+		table.getColumnModel().getColumn(2).setMinWidth(120);
+		table.getColumnModel().getColumn(3).setResizable(false);
+		table.getColumnModel().getColumn(3).setPreferredWidth(120);
+		table.getColumnModel().getColumn(3).setMinWidth(120);
+		table.getColumnModel().getColumn(4).setResizable(false);
+		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+		table.getColumnModel().getColumn(4).setMinWidth(100);
 		table.setRowHeight(50);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setOpaque(false);
@@ -107,7 +117,7 @@ public class AdminFeedBack extends Layout2 {
 		lblLaundryServices.setBounds(379, 42, 256, 36);
 		add(lblLaundryServices);
 		
-		super.RealLayout();
+		super.setLayout();
 	}
 	public AdminFeedBack(Frame2 frame)
 	{

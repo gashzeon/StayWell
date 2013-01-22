@@ -23,10 +23,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
+
+import staywell.ui.Layout;
+
 import java.awt.Color;
 
 
-public class AdminFoodNBeverage extends Layout2 {
+public class AdminFoodNBeverage extends Layout {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -78,53 +81,34 @@ public class AdminFoodNBeverage extends Layout2 {
 		table.setFont(new Font("Candara", Font.PLAIN, 11));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
 			},
 			new String[] {
-				"Date / Time", "Room No", "Name of Customer", "No of Order", "Type of Food", "No of Order", "Beverage", "Confirm"
+				"Membership No", "Type of Food", "Beverage"
 			}
 		) {
-			Class[] columnTypes = new Class[] {
-				Object.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class, String.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false, false
+				false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
 		table.getColumnModel().getColumn(0).setResizable(false);
-		table.getColumnModel().getColumn(0).setPreferredWidth(120);
-		table.getColumnModel().getColumn(0).setMinWidth(120);
+		table.getColumnModel().getColumn(0).setPreferredWidth(100);
+		table.getColumnModel().getColumn(0).setMinWidth(100);
 		table.getColumnModel().getColumn(1).setResizable(false);
-		table.getColumnModel().getColumn(1).setPreferredWidth(65);
-		table.getColumnModel().getColumn(1).setMinWidth(50);
+		table.getColumnModel().getColumn(1).setPreferredWidth(200);
+		table.getColumnModel().getColumn(1).setMinWidth(200);
 		table.getColumnModel().getColumn(2).setResizable(false);
-		table.getColumnModel().getColumn(2).setPreferredWidth(100);
-		table.getColumnModel().getColumn(2).setMinWidth(100);
-		table.getColumnModel().getColumn(3).setResizable(false);
-		table.getColumnModel().getColumn(3).setPreferredWidth(70);
-		table.getColumnModel().getColumn(3).setMinWidth(70);
-		table.getColumnModel().getColumn(4).setResizable(false);
-		table.getColumnModel().getColumn(4).setPreferredWidth(200);
-		table.getColumnModel().getColumn(4).setMinWidth(200);
-		table.getColumnModel().getColumn(5).setResizable(false);
-		table.getColumnModel().getColumn(5).setPreferredWidth(70);
-		table.getColumnModel().getColumn(5).setMinWidth(70);
-		table.getColumnModel().getColumn(6).setResizable(false);
-		table.getColumnModel().getColumn(6).setPreferredWidth(110);
-		table.getColumnModel().getColumn(6).setMinWidth(110);
-		table.getColumnModel().getColumn(7).setResizable(false);
+		table.getColumnModel().getColumn(2).setPreferredWidth(110);
+		table.getColumnModel().getColumn(2).setMinWidth(110);
 		table.setRowHeight(50);
 		table.setOpaque(false);
 		table.getTableHeader().setReorderingAllowed(false);
@@ -135,9 +119,28 @@ public class AdminFoodNBeverage extends Layout2 {
 		lblLaundryServices.setBounds(396, 42, 222, 36);
 		add(lblLaundryServices);
 		
+		JButton button_1 = new JButton("Send");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+		});
+		button_1.setFont(new Font("Candara", Font.BOLD, 20));
+		button_1.setBorder(null);
+		button_1.setBounds(871, 108, 111, 25);
+		add(button_1);
+		
+		JButton button_2 = new JButton("Refresh");
+		button_2.setFont(new Font("Candara", Font.BOLD, 20));
+		button_2.setBorder(null);
+		button_2.setBounds(750, 108, 111, 25);
+		add(button_2);
 		
 		
-		super.RealLayout();
+		
+		super.setLayout();
 	}
 	
 

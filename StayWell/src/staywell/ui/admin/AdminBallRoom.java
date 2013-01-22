@@ -20,10 +20,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
+
+import staywell.ui.Layout;
+
 import java.awt.Color;
 
 
-public class AdminBallRoom extends Layout2 {
+public class AdminBallRoom extends Layout {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -74,43 +77,40 @@ public class AdminBallRoom extends Layout2 {
 		table.setFont(new Font("Candara", Font.PLAIN, 11));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"Date / Time", "Room No", "Name of Customer", "Size Selected", "Time Slot Selected", "Date Selected"
+				"Membership No", "Type Selected", "Day Selected", "Month Selected", "Year Selected", "Time Start", "Time End"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false
+				false, false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
 		table.getColumnModel().getColumn(0).setResizable(false);
-		table.getColumnModel().getColumn(0).setPreferredWidth(120);
-		table.getColumnModel().getColumn(0).setMinWidth(120);
+		table.getColumnModel().getColumn(0).setPreferredWidth(65);
+		table.getColumnModel().getColumn(0).setMinWidth(50);
 		table.getColumnModel().getColumn(1).setResizable(false);
-		table.getColumnModel().getColumn(1).setPreferredWidth(65);
-		table.getColumnModel().getColumn(1).setMinWidth(50);
+		table.getColumnModel().getColumn(1).setPreferredWidth(100);
+		table.getColumnModel().getColumn(1).setMinWidth(100);
 		table.getColumnModel().getColumn(2).setResizable(false);
-		table.getColumnModel().getColumn(2).setPreferredWidth(100);
-		table.getColumnModel().getColumn(2).setMinWidth(100);
+		table.getColumnModel().getColumn(2).setPreferredWidth(150);
+		table.getColumnModel().getColumn(2).setMinWidth(150);
 		table.getColumnModel().getColumn(3).setResizable(false);
-		table.getColumnModel().getColumn(3).setPreferredWidth(100);
-		table.getColumnModel().getColumn(3).setMinWidth(100);
+		table.getColumnModel().getColumn(3).setPreferredWidth(150);
+		table.getColumnModel().getColumn(3).setMinWidth(150);
 		table.getColumnModel().getColumn(4).setResizable(false);
-		table.getColumnModel().getColumn(4).setPreferredWidth(150);
-		table.getColumnModel().getColumn(4).setMinWidth(150);
 		table.getColumnModel().getColumn(5).setResizable(false);
-		table.getColumnModel().getColumn(5).setPreferredWidth(150);
-		table.getColumnModel().getColumn(5).setMinWidth(150);
+		table.getColumnModel().getColumn(6).setResizable(false);
 		table.setRowHeight(50);
 		table.setOpaque(false);
 		table.getTableHeader().setReorderingAllowed(false);
@@ -121,7 +121,7 @@ public class AdminBallRoom extends Layout2 {
 		lblLaundryServices.setBounds(359, 42, 295, 36);
 		add(lblLaundryServices);
 		
-		super.RealLayout();
+		super.setLayout();
 	}
 	public AdminBallRoom(Frame2 frame)
 	{

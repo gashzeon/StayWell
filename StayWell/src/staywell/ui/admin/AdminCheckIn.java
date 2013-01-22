@@ -17,11 +17,14 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+
+import staywell.ui.Layout;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class AdminCheckIn extends Layout2 {
+public class AdminCheckIn extends Layout {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -88,7 +91,7 @@ public class AdminCheckIn extends Layout2 {
 		btnCheckIn.setBounds(166, 106, 102, 25);
 		panel_1.add(btnCheckIn);
 		
-		super.RealLayout();
+		super.setLayout();
 		
 	}
 	public AdminCheckIn(Frame2 frame)
