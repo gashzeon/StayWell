@@ -103,6 +103,8 @@ public class Login extends Layout {
 					session.setEmail(guest2.getMembershipNo());
 					session.setMembership(guest2.getMembership());
 					session.setPoints(guest2.getPoints());
+					session.setRoomNo(guest2.getRoomNumber());
+					session.setMembershipNo(guest2.getMembershipNo());
 					f.setSession(session);
 					if(LoginDAO.successLogin == true ){
 						if(user.getPassword().equals(user2.getPassword())){

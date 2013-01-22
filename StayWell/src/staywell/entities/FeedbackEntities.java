@@ -5,7 +5,14 @@ public class FeedbackEntities {
 	private String facilities;
 	private String staff;
 	private String overall;
+	private String membershipNo;
 	
+	public String getMembershipNo() {
+		return membershipNo;
+	}
+	public void setMembershipNo(String membershipNo) {
+		this.membershipNo = membershipNo;
+	}
 	public String getHouseKeeping() {
 		return houseKeeping;
 	}

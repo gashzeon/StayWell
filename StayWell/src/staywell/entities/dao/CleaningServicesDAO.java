@@ -1,13 +1,13 @@
 package staywell.entities.dao;
 
-import staywell.entities.dao.DBConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import staywell.entities.FeedbackEntities;
 
-public class FeedbackDAO {
+import staywell.entities.*;
+
+public class CleaningServicesDAO {
 	static Connection currentCon = null;
 	static ResultSet rs = null;
 	static PreparedStatement pstmt = null;
@@ -16,7 +16,7 @@ public class FeedbackDAO {
 
 	// added in another comment
 	// added in another comment to test conflict2
-	public static FeedbackEntities insertFeedback(FeedbackEntities feedback) {
+	public static void insertTiming(CleaningServicesEntities cleaningServices) {
 		
 		Statement stmt = null;
 
@@ -26,16 +26,14 @@ public class FeedbackDAO {
             // query for inserting into the table
 			currentCon = DBConnectionManager.getConnection();
             stmt = currentCon.createStatement();
-            String query = "insert into feedback(houseKeeping,facilities,staff,overall,membershipNo) values(?,?,?,?,?)";
+            String query = "insert into cleaningservices(time,roomNumber,membershipNo) values(?,?,?)";
             pstmt = currentCon.prepareStatement(query);
             // inserting values
             
          
-            pstmt.setString(1,feedback.getHouseKeeping());
-            pstmt.setString(2,feedback.getFacilities());
-            pstmt.setString(3, feedback.getStaff());  
-            pstmt.setString(4,feedback.getOverall());
-            pstmt.setString(4,feedback.getMembershipNo());
+            pstmt.setString(1,cleaningServices.getTime());
+            pstmt.setInt(2,cleaningServices.getRoomNo());
+            pstmt.setString(3,cleaningServices.getMembershipNo());
             pstmt.executeUpdate();
             
 		} catch (Exception ex) {
@@ -71,7 +69,6 @@ public class FeedbackDAO {
 				currentCon = null;
 			}
 		}
-		return feedback;
 
 	}
 }

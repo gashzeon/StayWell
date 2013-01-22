@@ -33,6 +33,7 @@ public class Feedback extends Layout {
 	private static String hotelFacilities;
 	private static String staff;
 	private static String overall;
+	private String membershipNo;
 
 	/**
 	 * Launch the application.
@@ -45,6 +46,12 @@ public class Feedback extends Layout {
 		f = frame;
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
+		
+		SessionEntities session = new SessionEntities();
+		if(f.getSession() != null){
+			session = f.getSession();
+		}
+		membershipNo = session.getMembershipNo();
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setOpaque(false);
@@ -315,10 +322,7 @@ public class Feedback extends Layout {
 				feedback.setHouseKeeping(houseKeeping);
 				feedback.setOverall(overall);
 				feedback.setStaff(staff);
-				System.out.println(hotelFacilities);
-				System.out.println(houseKeeping);
-				System.out.println(overall);
-				System.out.println(staff);
+				feedback.setMembershipNo(membershipNo);
 				FeedbackDAO feedbackDAO = new FeedbackDAO();
 				feedbackDAO.insertFeedback(feedback);
 				

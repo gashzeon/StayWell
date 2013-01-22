@@ -6,8 +6,21 @@ public class SessionEntities {
 	private String membership;
 	private String email;
 	private int points;
+	private int roomNo;
+	private String membershipNo;
 	
-	
+	public String getMembershipNo() {
+		return membershipNo;
+	}
+	public void setMembershipNo(String membershipNo) {
+		this.membershipNo = membershipNo;
+	}
+	public int getRoomNo() {
+		return roomNo;
+	}
+	public void setRoomNo(int roomNo) {
+		this.roomNo = roomNo;
+	}
 	public int getPoints() {
 		return points;
 	}
