@@ -1,29 +1,54 @@
 package staywell.ui.user;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Frame;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+
+import java.awt.Frame;
+import javax.swing.JLabel;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.SystemColor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JTable;
 
 import staywell.entities.SessionEntities;
 import staywell.ui.Layout;
 import staywell.ui.MainFrame;
 
+import java.awt.Font;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class FacilitiesReservation extends Layout {
-	MainFrame f;
+
 	/**
 	 * Create the panel.
 	 */
+	private MainFrame f;
+	
 	public FacilitiesReservation(MainFrame frame) {
-		f=frame;
+		f = frame;
 		
 		SessionEntities session = new SessionEntities();
 		if(f.getSession() != null){
@@ -34,35 +59,60 @@ public class FacilitiesReservation extends Layout {
 		setBounds(new Rectangle(0, 0, 1024, 768));
 		setLayout(null);
 		
-		JButton ballroomBtn = new JButton("");
-		ballroomBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Ballroom ballroom = f.getBallroom();
+		
+		JLabel lblHotelFacitlities = new JLabel("Hotel Facitlities");
+		lblHotelFacitlities.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		
+		JLabel lblRestaurant = new JLabel("Restaurant");
+		lblRestaurant.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		
+		JLabel lblBallroom = new JLabel("Ballroom");
+		lblBallroom.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(511, 5, 1, 1);
+		add(panel);
+		panel.setLayout(null);
+		
+		JLabel facilities = new JLabel("Reservation");
+		facilities.setForeground(Color.RED);
+		facilities.setHorizontalAlignment(SwingConstants.CENTER);
+		facilities.setFont(new Font("Candara", Font.BOLD, 30));
+		facilities.setBounds(448, 30, 164, 24);
+		add(facilities);
+		
+		JLabel lblNewLabel1 = new JLabel("New label");
+		setLayout(null);
+		
+		JButton hotelFacilities = new JButton("");
+		hotelFacilities.setBorder(null);
+		hotelFacilities.setBorderPainted(false);
+		hotelFacilities.setContentAreaFilled(false);
+		hotelFacilities.setIcon(new ImageIcon(FacilitiesReservation.class.getResource("/staywell/image/hotelfacilities.png")));
+		hotelFacilities.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HotelFacilities hotelFacilities = new HotelFacilities(f);
 				f.getContentPane().removeAll();
-				f.getContentPane().add(ballroom);
+				f.getContentPane().add(hotelFacilities);
 				f.repaint();
 				f.revalidate();
 				f.setVisible(true);
 			}
 		});
-		ballroomBtn.setContentAreaFilled(false);
-		ballroomBtn.setBorderPainted(false);
-		ballroomBtn.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/laundryservices.png")));
-		ballroomBtn.setBorder(null);
-		ballroomBtn.setBounds(729, 296, 150, 150);
-		add(ballroomBtn);
+		hotelFacilities.setBounds(157, 218, 150, 150);
+		add(hotelFacilities);
 		
-		JLabel hotelFacilitiesLb = new JLabel("Hotel Facilities");
-		hotelFacilitiesLb.setHorizontalAlignment(SwingConstants.CENTER);
-		hotelFacilitiesLb.setForeground(Color.RED);
-		hotelFacilitiesLb.setFont(new Font("Candara", Font.BOLD, 20));
-		hotelFacilitiesLb.setBounds(143, 457, 150, 22);
-		add(hotelFacilitiesLb);
+		JLabel Facilities = new JLabel("Facilities");
+		Facilities.setForeground(Color.RED);
+		Facilities.setFont(new Font("Candara", Font.BOLD, 20));
+		Facilities.setBounds(195, 397, 83, 24);
+		add(Facilities);
 		
-		JButton restaurantBtn = new JButton("");
-		restaurantBtn.addActionListener(new ActionListener() {
+		JButton RestaurantIcon = new JButton("");
+		RestaurantIcon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Restaurant restaurant = f.getRestaurant();
+				Restaurant restaurant = new Restaurant(f);
 				f.getContentPane().removeAll();
 				f.getContentPane().add(restaurant);
 				f.repaint();
@@ -70,44 +120,42 @@ public class FacilitiesReservation extends Layout {
 				f.setVisible(true);
 			}
 		});
-		restaurantBtn.setContentAreaFilled(false);
-		restaurantBtn.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/food&beverges.png")));
-		restaurantBtn.setBorderPainted(false);
-		restaurantBtn.setBorder(null);
-		restaurantBtn.setBounds(436, 296, 150, 150);
-		add(restaurantBtn);
+		RestaurantIcon.setBorder(null);
+		RestaurantIcon.setBorderPainted(false);
+		RestaurantIcon.setContentAreaFilled(false);
+		RestaurantIcon.setBounds(448, 218, 150, 150);
+		RestaurantIcon.setIcon(new javax.swing.ImageIcon(FacilitiesReservation.class.getResource("/staywell/image/restaurant.png")));
+		add(RestaurantIcon);
 		
-		JLabel restaurantLb = new JLabel("Restaurants");
-		restaurantLb.setHorizontalAlignment(SwingConstants.CENTER);
-		restaurantLb.setForeground(Color.RED);
-		restaurantLb.setFont(new Font("Candara", Font.BOLD, 20));
-		restaurantLb.setBounds(426, 457, 172, 22);
-		add(restaurantLb);
+		JLabel restaurant = new JLabel("Restaurant");
+		restaurant.setForeground(Color.RED);
+		restaurant.setFont(new Font("Candara", Font.BOLD, 20));
+		restaurant.setBounds(481, 400, 102, 19);
+		add(restaurant);
 		
-		JButton hotelFacilitiesBtn = new JButton("");
-		hotelFacilitiesBtn.addActionListener(new ActionListener() {
+		JButton ballRoomIcon = new JButton("");
+		ballRoomIcon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HotelFacilities hotelFacilites = f.getHotelFacilities();
+				Ballroom ballroom = new Ballroom(f);
 				f.getContentPane().removeAll();
-				f.getContentPane().add(hotelFacilites);
+				f.getContentPane().add(ballroom);
 				f.repaint();
 				f.revalidate();
 				f.setVisible(true);
 			}
 		});
-		hotelFacilitiesBtn.setContentAreaFilled(false);
-		hotelFacilitiesBtn.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/cleaningservices.png")));
-		hotelFacilitiesBtn.setBorderPainted(false);
-		hotelFacilitiesBtn.setBorder(null);
-		hotelFacilitiesBtn.setBounds(143, 296, 150, 150);
-		add(hotelFacilitiesBtn);
+		ballRoomIcon.setBorder(null);
+		ballRoomIcon.setBorderPainted(false);
+		ballRoomIcon.setContentAreaFilled(false);
+		ballRoomIcon.setBounds(718, 218, 150, 150);
+		add(ballRoomIcon);
+		ballRoomIcon.setIcon(new ImageIcon(FacilitiesReservation.class.getResource("/staywell/image/ballroom.png")));
 		
-		JLabel label_2 = new JLabel("Ball Room");
-		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setForeground(Color.RED);
-		label_2.setFont(new Font("Candara", Font.BOLD, 20));
-		label_2.setBounds(715, 457, 172, 22);
-		add(label_2);
+		JLabel ballRoom = new JLabel("Ballroom");
+		ballRoom.setForeground(Color.RED);
+		ballRoom.setFont(new Font("Candara", Font.BOLD, 20));
+		ballRoom.setBounds(761, 401, 83, 17);
+		add(ballRoom);
 		
 		JButton logo = new JButton();
 		logo.setIcon(new ImageIcon(Homepage.class.getResource("/Staywell/image/Logo.png")));
@@ -132,6 +180,9 @@ public class FacilitiesReservation extends Layout {
 		pointLb.setFont(new Font("Candara", Font.BOLD, 15));
 		pointLb.setBounds(0, 0, 200, 38);
 		add(pointLb);
+		// set layout
+
 		super.setLayout();
+		
 	}
 }

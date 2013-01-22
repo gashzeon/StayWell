@@ -26,7 +26,7 @@ public class MainFrame extends JFrame {
 	private static Login login;
 	private static Feedback feedBack;
 	private static Ballroom ballroom;
-	private static Reservation reservation;
+	private static FacilitiesReservation reservation;
 	private static HotelFacilities hotelFacilities;
 	private static CheckOut checkOut;
 	private static Restaurant restaurant;
@@ -45,7 +45,7 @@ public class MainFrame extends JFrame {
 	public Ballroom getBallroom(){
 		return ballroom;
 	}
-	public Reservation getReservation(){
+	public FacilitiesReservation getReservation(){
 		return reservation;
 	}
 	public HotelFacilities getHotelFacilities(){

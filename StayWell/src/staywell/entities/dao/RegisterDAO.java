@@ -1,6 +1,7 @@
 package staywell.entities.dao;
 
 import staywell.entities.*;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +21,19 @@ public class RegisterDAO {
 		
 		// get the last member ID 
 		try {
+			currentCon = DBConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			String getMax = "select MAX(membershipNo) from user";
+			rs1 = stmt.executeQuery(getMax);
+			rs1.next();
+			int maxId = rs1.getInt(1);
+			System.out.println(maxId);
+			int nextId = maxId + 1;
+
+			String query1 = "insert into memberids values(?)";
+			pstmt1 = currentCon.prepareStatement(query1);
+			pstmt1.setInt(1, nextId);
+			pstmt1.executeUpdate();
 			
 			currentCon = DBConnectionManager.getConnection();
 			stmt = currentCon.createStatement();

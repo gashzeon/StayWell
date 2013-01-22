@@ -47,6 +47,7 @@ public class RoomService extends Layout {
 				Date date = new Date();
 				time = timeFormat.format(date);
 				checkTime = Integer.parseInt(time.substring(0, 2));
+				System.out.println(checkTime);
 
 			}
 		};

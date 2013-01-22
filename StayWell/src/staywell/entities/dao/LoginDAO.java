@@ -42,7 +42,7 @@ public class LoginDAO {
                 String password = rs.getString("password");
                 String firstName = rs.getString("firstName");
                 String lastName = rs.getString("lastName");
-                String email = rs.getString("email");
+                String email = rs.getString("membershipNo");
                 String address = rs.getString("address");
                 String dob = rs.getString("dob");
                 String gender = rs.getString("gender");
@@ -70,11 +70,11 @@ public class LoginDAO {
 	}
 
 	public static GuestEntities Login(GuestEntities guest) {
-		String email = guest.getMembershipNo();
+		String membershipNo = guest.getMembershipNo();
 		Statement stmt = null;
 		
-        String searchQuery = "select * from guest where email ='"
-                + email + "' ";
+        String searchQuery = "select * from guest where membershipNo ='"
+                + membershipNo + "' ";
 
         try {
             // connect to DB
@@ -90,14 +90,14 @@ public class LoginDAO {
 
             // if user exists set the isValid variable to true
             else if (more) {
-                String email1 = rs.getString("email");
+                String membershipNo1 = rs.getString("membershipNo");
                 String membership = rs.getString("membership");
                 int points = rs.getInt("points");
                 int roomNo = rs.getInt("roomNumber");
                 double cost = rs.getDouble("cost");
                 
                 guest = new GuestEntities();
-                guest.getMembershipNo(email1);
+                guest.getMembershipNo(membershipNo1);
                 guest.setMembership(membership);
                 guest.setPoint(points);
                 guest.setRoomNumber(roomNo);
