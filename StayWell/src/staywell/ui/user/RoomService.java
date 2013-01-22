@@ -74,7 +74,7 @@ public class RoomService extends Layout {
 		CleaningServices.setContentAreaFilled(false);
 		CleaningServices.setBorderPainted(false);
 		CleaningServices.setIcon(new ImageIcon(Homepage.class
-				.getResource("/staywell/image/laundryservices.png")));
+				.getResource("/staywell/image/cleaningservices.png")));
 		CleaningServices.setBorder(null);
 		CleaningServices.setBounds(729, 296, 150, 150);
 		add(CleaningServices);
@@ -134,7 +134,7 @@ public class RoomService extends Layout {
 		});
 		LaundryServices.setContentAreaFilled(false);
 		LaundryServices.setIcon(new ImageIcon(Homepage.class
-				.getResource("/staywell/image/cleaningservices.png")));
+				.getResource("/staywell/image/laundryservices.png")));
 		LaundryServices.setBorderPainted(false);
 		LaundryServices.setBorder(null);
 		LaundryServices.setBounds(143, 296, 150, 150);
