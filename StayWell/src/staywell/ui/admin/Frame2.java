@@ -23,7 +23,7 @@ public class Frame2 extends JFrame {
 	private static AdminCarCollection2 adminCarCollection2;
 	private static AdminCheckIn adminCheckIn;
 	private static AdminCheckOut adminCheckOut;
-	
+	private static AdminCleaning adminCleaning;
 	private static AdminFeedBack adminFeedBack;
 	private static AdminFoodNBeverage adminFoodNBeverage;
 	private static AdminHomePage adminHomePage;
@@ -43,6 +43,11 @@ public class Frame2 extends JFrame {
 	public AdminBallRoom getAdminBallRoom()
 	{
 		return adminBallRoom;
+	}
+	
+	public AdminCleaning getAdminCleaning()
+	{	
+		return adminCleaning;
 	}
 	
 	public AdminCarCollection2 getAdminCarCollection2()
@@ -136,7 +141,7 @@ public class Frame2 extends JFrame {
 					adminCarCollection2 = new AdminCarCollection2(frame);
 					adminCheckIn = new AdminCheckIn(frame);
 					adminCheckOut = new AdminCheckOut(frame);
-					
+					adminCleaning = new AdminCleaning(frame);
 					adminFeedBack = new AdminFeedBack(frame);
 					adminFoodNBeverage = new AdminFoodNBeverage(frame);
 					adminHomePage = new AdminHomePage(frame);
