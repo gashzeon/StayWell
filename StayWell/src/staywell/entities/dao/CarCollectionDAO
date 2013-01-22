@@ -1,0 +1,76 @@
+
+package staywell.entities.dao;
+
+import staywell.ui.user.carcollection.CarCollection;
+import staywell.entities.CarCollectionEntities;
+import staywell.entities.dao.DBConnectionManager;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class CarCollectionDAO {
+	static Connection currentCon = null;
+	static ResultSet rs = null;
+	static PreparedStatement pstmt = null;
+	static ResultSet rs1 = null;
+	static PreparedStatement pstmt1 = null;
+
+	// added in another comment
+	// added in another comment to test conflict2
+	public static CarCollectionEntities insertCarNo(String carNo) {
+		CarCollectionEntities cc = new CarCollectionEntities();
+		
+		Statement stmt = null;
+
+		// get the car number
+		try {
+			
+            // query for inserting into the table
+			currentCon = DBConnectionManager.getConnection();
+            stmt = currentCon.createStatement();
+            String query = "insert into carcollection (carNo) values(?)";
+            pstmt = currentCon.prepareStatement(query);
+            // inserting values
+            
+         
+            pstmt.setString(1,carNo);
+            pstmt.executeUpdate();
+            cc.setCarNo(carNo);
+            
+		} catch (Exception ex) {
+
+			System.out.println("Input of car plate number have error"
+					+ ex);
+		}
+
+		// exception handling
+		finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (Exception e) {
+				}
+				rs = null;
+			}
+
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (Exception e) {
+				}
+				stmt = null;
+			}
+
+			if (currentCon != null) {
+				try {
+					currentCon.close();
+				} catch (Exception e) {
+				}
+
+				currentCon = null;
+			}
+		}
+		return cc;
+	}
+}
