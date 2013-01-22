@@ -64,8 +64,28 @@ public class AdminRoomServices extends Layout {
 				f.setVisible(true);
 			}
 		});
+		
+		JLabel label = new JLabel("Cleaning Services");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(Color.RED);
+		label.setFont(new Font("Candara", Font.BOLD, 20));
+		label.setBounds(714, 510, 172, 22);
+		add(label);
+		
+		JButton button_3 = new JButton("");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		button_3.setContentAreaFilled(false);
+		button_3.setBorderPainted(false);
+		button_3.setBorder(null);
+		button_3.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/cleaningservices.png")));
+		button_3.setBounds(729, 349, 150, 150);
+		add(button_3);
 		button_2.setFont(new Font("Candara", Font.BOLD, 20));
 		button_2.setBorder(null);
+		
 		button_2.setBounds(10, 11, 111, 25);
 		add(button_2);
 		
@@ -84,7 +104,7 @@ public class AdminRoomServices extends Layout {
 		button.setBorderPainted(false);
 		button.setBorder(null);
 		button.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/food&beverges.png")));
-		button.setBounds(557, 345, 150, 150);
+		button.setBounds(436, 345, 150, 150);
 		add(button);
 		
 		JButton button_1 = new JButton("");
@@ -103,7 +123,7 @@ public class AdminRoomServices extends Layout {
 		button_1.setBorderPainted(false);
 		button_1.setIcon(new ImageIcon(Homepage.class.getResource("/staywell/image/laundryservices.png")));
 		button_1.setBorder(null);
-		button_1.setBounds(263, 345, 150, 150);
+		button_1.setBounds(143, 345, 150, 150);
 		add(button_1);
 		
 		JLabel lblLaundryServices = new JLabel("Laundry Services");
@@ -111,7 +131,7 @@ public class AdminRoomServices extends Layout {
 		lblLaundryServices.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLaundryServices.setForeground(Color.RED);
 		lblLaundryServices.setFont(new Font("Candara", Font.BOLD, 18));
-		lblLaundryServices.setBounds(263, 506, 150, 26);
+		lblLaundryServices.setBounds(143, 509, 150, 26);
 		add(lblLaundryServices);
 		
 		JLabel lblFoodBeverage = new JLabel("Food & Beverage");
@@ -119,7 +139,7 @@ public class AdminRoomServices extends Layout {
 		lblFoodBeverage.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFoodBeverage.setForeground(Color.RED);
 		lblFoodBeverage.setFont(new Font("Candara", Font.BOLD, 18));
-		lblFoodBeverage.setBounds(557, 506, 150, 26);
+		lblFoodBeverage.setBounds(436, 509, 150, 26);
 		add(lblFoodBeverage);
 
 		Logo.setIcon(new ImageIcon(PointRedemption.class.getResource("/staywell/image/Logo.png")));

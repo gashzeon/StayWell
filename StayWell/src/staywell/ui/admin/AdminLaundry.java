@@ -77,20 +77,20 @@ public class AdminLaundry extends Layout {
 		table.setFont(new Font("Candara", Font.PLAIN, 11));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
 			},
 			new String[] {
-				"Membership No", "Type of Service", "Date of Collection", "Room Cleaning Service Time"
+				"Membership No", "Type of Service", "Date of Collection"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false
+				false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -105,9 +105,6 @@ public class AdminLaundry extends Layout {
 		table.getColumnModel().getColumn(2).setResizable(false);
 		table.getColumnModel().getColumn(2).setPreferredWidth(150);
 		table.getColumnModel().getColumn(2).setMinWidth(150);
-		table.getColumnModel().getColumn(3).setResizable(false);
-		table.getColumnModel().getColumn(3).setPreferredWidth(150);
-		table.getColumnModel().getColumn(3).setMinWidth(150);
 		table.setRowHeight(50);
 		table.setOpaque(false);
 		table.getTableHeader().setReorderingAllowed(false);
