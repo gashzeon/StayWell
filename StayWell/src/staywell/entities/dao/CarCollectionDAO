@@ -1,4 +1,3 @@
-
 package staywell.entities.dao;
 
 import staywell.ui.user.carcollection.CarCollection;
@@ -8,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.DriverManager;
 
 public class CarCollectionDAO {
 	static Connection currentCon = null;
@@ -16,31 +16,31 @@ public class CarCollectionDAO {
 	static ResultSet rs1 = null;
 	static PreparedStatement pstmt1 = null;
 
-	// added in another comment
-	// added in another comment to test conflict2
-	public static CarCollectionEntities insertCarNo(String carNo) {
+	public static CarCollectionEntities insertCarNoAndMembershipNo(String carNo, int membershipNo) {
 		CarCollectionEntities cc = new CarCollectionEntities();
 		
 		Statement stmt = null;
 
-		// get the car number
+		// get the car and membership number
 		try {
-			
-            // query for inserting into the table
+            // connect to DB
 			currentCon = DBConnectionManager.getConnection();
             stmt = currentCon.createStatement();
-            String query = "insert into carcollection (carNo) values(?)";
+            String query = "insert into carcollection (carNo,membershipNo) values ('"+carNo+"','"+membershipNo+"')";
             pstmt = currentCon.prepareStatement(query);
-            // inserting values
             
-         
+            // inserting values
             pstmt.setString(1,carNo);
+            pstmt.setInt(2, membershipNo);
             pstmt.executeUpdate();
             cc.setCarNo(carNo);
+            cc.setMembershipNo(membershipNo);
+            
+            updateRequest(query);
             
 		} catch (Exception ex) {
 
-			System.out.println("Input of car plate number have error"
+			System.out.println("Input of car plate number or membership number have error"
 					+ ex);
 		}
 
@@ -72,5 +72,20 @@ public class CarCollectionDAO {
 			}
 		}
 		return cc;
+	}
+	
+	public static int updateRequest(String dbQuery) {
+		int count = 0;
+		Connection con = null;
+		System.out.println("DB Query: " + dbQuery);
+		try {
+			// create a statement object
+			Statement stmt = con.createStatement();
+			// execute an SQL query and get the result
+			count = stmt.executeUpdate(dbQuery);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
 	}
 }
