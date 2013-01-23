@@ -32,6 +32,8 @@ import org.jdesktop.swingx.mapviewer.LocalResponseCache;
 import org.jdesktop.swingx.mapviewer.TileFactoryInfo;
 import org.jdesktop.swingx.mapviewer.WaypointPainter;
 
+import staywell.entities.MapEntities;
+import staywell.entities.dao.MapDAO;
 import staywell.ui.user.Homepage;
 
 
@@ -48,13 +50,15 @@ public class CityGuides extends JFrame
 	private static DefaultTileFactory tileFactory;
 	private static File cacheDir;
 	private static final JXMapViewer mapViewer = new JXMapViewer();
-	private final static GeoPosition stayWell = new GeoPosition(1,  18, 0, 103, 49, 0);
-	private final static GeoPosition jurongBirdPark = new GeoPosition(1,  19, 0, 103, 42, 0);
-	private final static GeoPosition nightSafari= new GeoPosition(1,  24, 0, 103, 47, 0);
-	private final static GeoPosition singaporeZoologicalGarden = new GeoPosition(1,  24, 15, 103, 47, 27);
-	private final static GeoPosition theSingaporeCrocodilarium = new GeoPosition(1,  17, 44, 103, 53, 26);
-	private final static GeoPosition hawParVilla = new GeoPosition(50,  6, 0, 8, 46, 0);
-	private final static GeoPosition marinaBaySands = new GeoPosition(50,  6, 0, 8, 46, 0);
+	private static GeoPosition stayWell;
+	private static GeoPosition jurongBirdPark;
+	private static GeoPosition nightSafari;
+	private static GeoPosition singaporeZoologicalGarden;  
+	private static GeoPosition theSingaporeCrocodilarium; 
+	private static GeoPosition hawParVilla;
+	private static GeoPosition marinaBaySands = null;
+	private MapEntities map = new MapEntities();
+	
 	/**
 	 * @param args the program args (ignored)
 	 */
@@ -68,6 +72,45 @@ public class CityGuides extends JFrame
 		cacheDir = new File(System.getProperty("user.home") + File.separator + ".jxmapviewer2");
 		LocalResponseCache.installResponseCache(info.getBaseURL(), cacheDir, false);
 
+		
+		
+	
+		map.setPlaceName("StayWell");
+		map = MapDAO.findPlace(map);
+		
+		stayWell = new GeoPosition(map.getLatDegree(), map.getLatMinute(), map.getLatSecond(), map.getLonDegree(), map.getLonMinute(), map.getLonSecond());
+		
+		map.setPlaceName("JurongBirdPark");
+		map = MapDAO.findPlace(map);
+		
+		jurongBirdPark = new GeoPosition(map.getLatDegree(), map.getLatMinute(), map.getLatSecond(), map.getLonDegree(), map.getLonMinute(), map.getLonSecond());
+		
+		map.setPlaceName("NightSafari");
+		map = MapDAO.findPlace(map);
+		
+		nightSafari= new GeoPosition(map.getLatDegree(), map.getLatMinute(), map.getLatSecond(), map.getLonDegree(), map.getLonMinute(), map.getLonSecond());
+		
+		map.setPlaceName("SingaporeZoologicalGarden");
+		map = MapDAO.findPlace(map);
+		
+		singaporeZoologicalGarden = new GeoPosition(map.getLatDegree(), map.getLatMinute(), map.getLatSecond(), map.getLonDegree(), map.getLonMinute(), map.getLonSecond());
+		
+		
+		map.setPlaceName("TheSingaporeCrocodilarium");
+		map = MapDAO.findPlace(map);
+		
+		theSingaporeCrocodilarium = new GeoPosition(map.getLatDegree(), map.getLatMinute(), map.getLatSecond(), map.getLonDegree(), map.getLonMinute(), map.getLonSecond());
+		
+		map.setPlaceName("MarinaBaySands");
+		map = MapDAO.findPlace(map);
+		
+		hawParVilla = new GeoPosition(map.getLatDegree(), map.getLatMinute(), map.getLatSecond(), map.getLonDegree(), map.getLonMinute(), map.getLonSecond()); 
+		
+		map.setPlaceName("MarinaBaySands");
+		map = MapDAO.findPlace(map);
+		
+		marinaBaySands = new GeoPosition(map.getLatDegree(), map.getLatMinute(), map.getLatSecond(), map.getLonDegree(), map.getLonMinute(), map.getLonSecond());
+		
 		// Setup JXMapViewer
 		
 		mapViewer.setTileFactory(tileFactory);
@@ -211,6 +254,7 @@ public class CityGuides extends JFrame
 		btnMarinaBaySands.setBounds(373, 39, 203, 23);
 		btnMarinaBaySands.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				mapViewer.setZoom(4);
 				mapViewer.setAddressLocation(marinaBaySands);
 				infoPage.setText("<html><h4>This is where you are now!</h4><p>Safari</p></html>");
