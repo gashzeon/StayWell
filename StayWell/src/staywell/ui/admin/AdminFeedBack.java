@@ -1,4 +1,6 @@
 package staywell.ui.admin;
+
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -21,16 +23,26 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
+import staywell.entities.FeedbackEntities;
+import staywell.entities.dao.FeedbackDAO;
 import staywell.ui.Layout;
+import staywell.ui.user.Feedback;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Random;
 
 
 public class AdminFeedBack extends Layout {
-
+	
 	private JPanel contentPane;
 	private JTable table;
 	private Frame2 f=null;
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -70,12 +82,17 @@ public class AdminFeedBack extends Layout {
 		add(button);
 		add(scrollPane);
 		
+		ArrayList<FeedbackEntities> feedbackList = FeedbackDAO.retrieveAll();
+		int count = feedbackList.size();
+		
+		
+								
 		table = new JTable();
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		table.setFont(new Font("Candara", Font.PLAIN, 20));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Very Good", null, null, null, null},
+				{"VeryGood", null, null, null, null},
 				{"Good", null, null, null, null},
 				{"Netural", null, null, null, null},
 				{"Bad", null, null, null, null},

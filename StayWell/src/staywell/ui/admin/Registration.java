@@ -262,12 +262,12 @@ public class Registration extends Layout {
 			user.setFirstName(txtFirstName.getText());
 			user.setLastName(txtLastName.getText());
 			user.setNationality(nationalityDDL.getSelectedItem().toString());
-			user.setGender(buttonGroup.getSelection());
+			user.setGender(buttonGroup.getSelection().toString());
 			user.setDob(dayDDL.getSelectedItem().toString() + "/" +monthDDL.getSelectedItem().toString()+"/"+ yearDDL.getSelectedItem().toString());
 			user.setAddress(txtAddress.getText());
 			user.setOccupation(occupationDDL.getSelectedItem().toString());
 			
-			user.setMembershipNo("000000002");
+			user.setMembershipNo("000000003");
 			boolean isAbleToCreate = false;
 			isAbleToCreate = RegisterDAO.checkUser(user);
 			UserEntities user2 = new UserEntities();

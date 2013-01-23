@@ -135,6 +135,7 @@ public class Frame2 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					Frame2 frame = new Frame2();
 					
 					adminBallRoom = new AdminBallRoom(frame);

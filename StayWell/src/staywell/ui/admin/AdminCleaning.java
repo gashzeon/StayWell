@@ -86,7 +86,7 @@ public class AdminCleaning extends Layout {
 				{null, null, null},
 			},
 			new String[] {
-				"Membership No", "Type of Service", "Date of Collection"
+				"Membership No", "Room No", "Time Selected"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {

@@ -1,4 +1,6 @@
 package staywell.ui.admin;
+
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -31,6 +33,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
+import staywell.entities.dao.AdminTaxiDAO;
 import staywell.ui.Layout;
 
 import java.awt.Color;
@@ -85,6 +88,7 @@ public class AdminTaxi extends Layout {
 		add(button);
 		add(scrollPane);
 
+		
 		table = new JTable();
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		table.setFont(new Font("Candara", Font.PLAIN, 20));
@@ -109,6 +113,8 @@ public class AdminTaxi extends Layout {
 				return columnEditables[column];
 			}
 		});
+		
+		
 		table.getColumnModel().getColumn(0).setResizable(false);
 		table.getColumnModel().getColumn(0).setPreferredWidth(120);
 		table.getColumnModel().getColumn(0).setMinWidth(120);
